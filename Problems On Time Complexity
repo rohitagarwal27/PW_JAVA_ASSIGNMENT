@@ -1,0 +1,99 @@
+Q1. Calculate the time complexity of the given function:
+public static void fun(int n)
+  {
+    if (n < 5)
+    System.out.print("College Wallah");
+    else {
+    for (int i = 0; i < n; i++) {
+    System.out.print(i + " ");
+    }
+  }
+}
+
+Answer: O(1) in best case and O(n) in worst case.
+Explanation: This program contains if and else conditions. Hence, there are 2 possibilities of time complexity.
+If the value of n is less than 5, then we get only College Wallah as output and its time complexity will be O(1).
+But, if n>=5, then for loop will execute and time complexity becomes O(n), which is considered the worst case
+because it takes more time.
+=================================================================================================================================================
+Q2. Calculate the time complexity of the given function:
+public static void function(int n)
+{
+int i = 1, s = 1;
+while (s < n) {
+s = s + i;
+i++;
+}
+}
+Answer: O(√n)
+Q1. Calculate the time complexity of the given function:
+public static void fun(int n)
+{
+if (n < 5)
+System.out.print("College Wallah");
+else {
+for (int i = 0; i < n; i++) {
+System.out.print(i + " ");
+}
+}
+}
+
+Answer: O(1) in best case and O(n) in worst case.
+Explanation: This program contains if and else conditions. Hence, there are 2 possibilities of time complexity.
+If the value of n is less than 5, then we get only College Wallah as output and its time complexity will be O(1).
+But, if n>=5, then for loop will execute and time complexity becomes O(n), which is considered the worst case
+because it takes more time.
+
+Explanation: We can define the ‘S’ terms according to the relation Si = Si-1 + i. Let k is the total number of
+iterations taken by the program
+
+When S>=n , then loop will stop at kth iterations,
+⇒ S>=n ⇒ S=n
+⇒ 2 + 2 + 3 + 4 + ......+ k = n
+⇒ 1 + (k * (k + 1))/2 = n
+⇒ k = n
+k = √n
+Hence, the time complexity is O(√n).
+=================================================================================================================================================
+Q3. Calculate the time complexity of the given function:
+public static void fun(int a, int b){
+while (a != b) {
+if (a > b)
+a = a - b;
+else
+b = b - a;
+}
+}
+Answer: Time complexity = O(1) in best case and O(max(a, b)) worst case.
+Explanation: If the values of a and b are the same, then the while loop will not be executed. Hence, time
+complexity will be O(1).
+But if a!=b, then the while loop will be executed. Let a=16 and b=5;
+For this case, while loop executed 8 times (a/2 16/2 8).
+If a=5 and b=16, then also the loop will be executed 8 times. So we can say that time complexity is
+O(max(a/2,b/2))⇒O(max(a, b)), which is considered the worst case because it takes more time.
+==============================================================================================================================================
+Q4. Calculate the time complexity of the given function:
+public static void fun(int n, int x){
+for (int i = 1; i < n; i = i x)
+System.out.println(“hello”);
+}
+Answer: O(log n)
+Explanation: Let k be the no. of iteration of the loop.
+⇒ The loop will stop when i>=n ⇒ x = n
+⇒ x =n (Take log both sides)
+⇒ k=log n
+⇒ Hence, time complexity is O(log n).
+===============================================================================================================================================
+Q5. Calculate the time complexity of the given function:
+public static void fun(int n){
+for (int i = 0; i < n / 2; i++)
+for (int j = 1; j + n / 2 <= n; j++)
+for (int k = 1; k <= n; k = k * 2)
+System.out.println(“hello”);
+}
+Answer: O(n log n).
+Explanation:
+Time complexity of 1st for loop = O(n/2) ⇒ O(n).
+Time complexity of 2nd for loop = O(n/2) ⇒ O(n).
+Time complexity of 3rd for loop = O(log n).
+Hence, the time complexity of function will become O((n log n).

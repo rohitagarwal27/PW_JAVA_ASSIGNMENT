@@ -1,0 +1,264 @@
+Q1. You are given an array of n digits. Your task is to generate a k-digit number such that it is the maximum
+possible number that can be generated from the given digits. Make sure that the relative ordering of the
+digits is not changed.
+Note the value of k can be large so the number should be formed in the form of a string.
+Input
+n=4
+arr=[1, 2, 3, 4]
+k=3
+Output
+234
+Input
+n=4
+arr=[1, 2, 3, 4]
+k=2
+Output
+34
+
+import java.util.*;
+public class Main 
+{
+   public static String largestNumber(int n, int[] a, int k) {
+       Stack<Integer> s = new Stack<>();
+       for (int i = 0; i < n; i++) {
+           while (n - i > k && s.size() > 0 && s.peek() < a[i]) {
+               s.pop();
+               k++;
+           }
+           s.push(a[i]);
+           k--;
+       }
+       StringBuffer ans = new StringBuffer();
+       for (int i = 0; i < s.size(); i++) {
+           ans.append(Integer.toString(s.get(i)));
+       }
+       return ans.toString();
+   }
+ 
+ 
+   public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+       int n = sc.nextInt();
+       int[] a = new int[n];
+       for (int i = 0; i < n; i++) {
+           a[i] = sc.nextInt();
+       }
+       int k = sc.nextInt();
+       System.out.println(largestNumber(n, a, k));
+   }
+}
+=======================================================================================================================================================================
+Q2. You are given two non-empty linked lists representing two non-negative integers. The most significant
+digit comes first and each of their nodes contains a single digit. Add the two numbers and return the sum as
+a linked list.
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+The first line of input contains n and m, the size of the 2 linked lists.
+The second line of input contains n integers, the values stored in the first linked list.
+The third line of input contains m integers, the values stored in the second linked list.
+Input
+3 4
+1 2 3
+1 2 3 4
+Output
+1357
+
+import java.util.*;
+ 
+ 
+class Node {
+   public int val;
+   public Node next;
+ 
+ 
+   public Node(int val) {
+       this.val = val;
+       next = null;
+   }
+}
+ 
+ 
+public class Main {
+   public static Node insert(Node head, int val) {
+       if (head == null) {
+           return new Node(val);
+       }
+       Node tail = head;
+       while (tail.next != null) {
+           tail = tail.next;
+       }
+       tail.next = new Node(val);
+       return head;
+   }
+ 
+ 
+   public static void print(Node head) {
+       while (head != null) {
+           System.out.print(head.val);
+           head = head.next;
+       }
+   }
+ 
+ 
+ 
+ 
+   public static Node add(Node head1, Node head2) {
+       Stack<Integer> st1 = new Stack<Integer>(), st2 = new Stack<Integer>();
+       while (head1 != null) {
+           st1.push(head1.val);
+           head1 = head1.next;
+       }
+       while (head2 != null) {
+           st2.push(head2.val);
+           head2 = head2.next;
+       }
+       Node ans = null;
+       int carry = 0;
+ 
+ 
+ 
+ 
+       while (st1.size() > 0 || st2.size() > 0) {
+           int sum = carry;
+           if (st1.size() > 0) {
+               sum += st1.pop();
+           }
+           if (st2.size() > 0) {
+               sum += st2.pop();
+           }
+           Node new_node = new Node(sum % 10);
+           carry = sum / 10;
+           new_node.next = ans;
+           ans = new_node;
+       }
+       if (carry > 0) {
+           Node new_node = new Node(carry);
+           new_node.next = ans;
+           ans = new_node;
+       }
+       return ans;
+   }
+ 
+ 
+   public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+       int n = sc.nextInt(), m = sc.nextInt();
+       Node head1 = null, head2 = null;
+       for (int i = 0; i < n; i++) {
+           head1 = insert(head1, sc.nextInt());
+       }
+       for (int i = 0; i < m; i++) {
+           head2 = insert(head2, sc.nextInt());
+       }
+       Node sum = add(head1, head2);
+       print(sum);
+   }
+}
+======================================================================================================================================================================
+Q3. Given a vector, print the index of the Next Smaller Element for every element.
+The Next Smaller Element for an element x is the first smaller element on the right side of x in the vector.
+Elements for which no smaller element exists, consider the next smaller element as -1.
+The first line of input contains the size of the vector.
+The second line of input contains the elements of the vector.
+Input
+4
+3 2 4 1
+Output
+1 3 3 -1
+Explanation
+For 3, the next smaller element is 2(index = 1).
+For 2, the next smaller element is 1(index = 3).
+For 4, the next smaller element is 1(index = 3).
+For 1, there is no value smaller than it on its right side
+
+import java.util.*;
+public class Main 
+{
+   public static ArrayList<Integer> nextSmallerElement(int n, ArrayList<Integer> a) {
+       ArrayList<Integer> ans = new ArrayList<Integer>();
+       Stack<Integer> s = new Stack<Integer>();
+       for (int i = 0; i < n; i++) {
+           ans.add(-1);
+       }
+       for (int i = n - 1; i >= 0; i--) {
+           while (!s.empty() && a.get(s.peek()) >= a.get(i))
+               s.pop();
+           if (!s.empty()) {
+               ans.set(i, s.peek());
+           }
+           s.push(i);
+       }
+       return ans;
+   }
+ 
+ 
+   public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+       int n = sc.nextInt();
+       ArrayList<Integer> a = new ArrayList<Integer>();
+       for (int i = 0; i < n; i++) {
+           a.add(sc.nextInt());
+       }
+       ArrayList<Integer> ans = nextSmallerElement(n, a);
+       System.out.println(ans);
+   }
+}
+=======================================================================================================================================================================
+
+Q4. You are given an array of n integers representing the heights of the buildings in an area. Mario can jump
+from one building of height arr[i] to another of height arr[j], i <= j, if the height of the second building is
+strictly greater than the height of the first building i.e. arr[j] > arr[i]. Each day mario makes a jump. Today he
+is a little busy so he wants to keep the length of jump(j - i) as small as possible. Help him find the location
+from where he must make his jump and to where.
+Assume there always exists a valid answer. If there are multiple answers, print the answer with the
+minimum index(0 -based indexing).
+The first line of input contains the value of n.
+The second line of input contains n integers, the heights of the buildings.
+Input
+5
+1 10 3 2 4
+Output
+0 1
+Explanation
+There are 6 jumps possible for Mario to make.
+1→10, distance = 1 - 0 = 1
+1→3, distance = 2 - 0 = 2
+1→2, distance = 3 - 0 = 3
+1→4, distance = 4 - 0 = 4
+3→4, distance = 4 - 2 = 2
+2→4, distance = 4 - 3 = 1
+Out of them 1→10 and 2→4 have the minimum distance.
+Here 1 is located at index 0 and 2 is located at index 3. Since 1 has a lower index, we will print the indices of 1
+and 10 i.e. 0 and 1.
+
+import java.util.*;
+public class Main 
+{
+   public static ArrayList<Integer> minJump(int n, int[] a) {
+       Stack<Integer> s = new Stack<>();
+       int minDis = Integer.MAX_VALUE, from = -1, to = -1;
+       for (int i = n - 1; i >= 0; i--) {
+           while (s.size() > 0 && a[s.peek()] <= a[i]) {
+               s.pop();
+           }
+           if (s.size() > 0 && minDis >= s.peek() - i) {
+               from = i;
+               to = s.peek();
+               minDis = to - from;
+           }
+           s.push(i);
+       }
+       return new ArrayList<>(Arrays.asList(from, to));
+   }
+ 
+ 
+   public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+       int n = sc.nextInt();
+       int a[] = new int[n];
+       for (int i = 0; i < n; i++) {
+           a[i] = sc.nextInt();
+       }
+       System.out.println(minJump(n, a));
+   }
+}
+=======================================================================================================================================================================

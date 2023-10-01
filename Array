@@ -1,0 +1,242 @@
+Q1. Check if an element x exists in the given matrix or not. If it does not exist, return -1, else return its
+row and column index.
+Input:
+x = 12
+arr[][] = {{3, 8, 0}, {6, 3, 2}, {12, 9, 10}}
+Expected Output:
+Row = 2
+Column = 0
+
+Assignment Solutions
+
+Cracking the Coding Interview in Java - Foundation
+
+import java.util.Scanner;
+public class Test {
+public static void main(String[] args) {
+Scanner scn = new Scanner(System.in);
+System.out.println("Enter the dimensions of 2d array you want to convert to: ");
+int n = scn.nextInt();
+int m = scn.nextInt();
+int[] arr = new int[m*n];
+int[][] mat = new int[n][m];
+System.out.println("Enter the elements of 1D array: ");
+for(int i = 0; i < m*n; i++){
+arr[i] = scn.nextInt();
+}
+Code:
+Explanation:
+Keep a pointer for current index of 1d array
+Traverse the matrix and keep adding element at idx of 1d array and increment idx.
+Q2. Convert a 1D sorted array of length n*m to a 2D array of n rows and m columns. The matrix should also be
+sorted row and column wise.
+Input:
+n = 2
+m = 2
+arr = [1,2,3,4]
+Expected Output:
+[[1,2],[3,4]]
+
+•
+•
+
+Assignment Solutions
+
+Cracking the Coding Interview in Java - Foundation
+
+int idx = 0;
+for(int i = 0; i < n; i++){
+for(int j = 0; j < m; j++){
+mat[i][j] = arr[idx];
+idx++;
+}
+}
+for(int i = 0; i < n; i++){
+for(int j = 0; j < m; j++){
+System.out.print(mat[i][j] + " ");
+}
+System.out.println();
+}
+}
+}
+
+import java.util.Scanner;
+public class Test {
+public static void main(String[] args) {
+Scanner scn = new Scanner(System.in);
+System.out.println("Enter the dimensions of the 2d array: ");
+int n = scn.nextInt();
+int m = scn.nextInt();
+int[][] mat = new int[n][m];
+System.out.println("Enter the elements of the array: ");
+for(int i = 0; i < n; i++){
+for(int j = 0; j < m; j++){
+mat[i][j] = scn.nextInt();
+}
+}
+System.out.println("Enter the range of rows: ");
+int srow = scn.nextInt();
+int erow = scn.nextInt();
+System.out.println("Enter the range of columns: ");
+int scol = scn.nextInt();
+int ecol = scn.nextInt();
+int sum = 0;
+while(srow <= erow){
+int j = scol;
+while(j <= ecol){
+sum += mat[srow][j];
+j++;
+}
+srow++;
+}
+System.out.println(sum);
+}
+}
+Code:
+Assignment Solutions
+
+Cracking the Coding Interview in Java - Foundation
+
+Explanation:
+•
+
+•
+•
+
+•
+Input:
+n = 3
+m = 3
+arr[][] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}
+range = [0, 1], [1, 2]
+Expected Output:
+16
+
+Traverse from starting row of range given till end row.
+Use a pointer j, to track column for every row.
+Run j from start col to end col.
+Keep adding these elements to sum, and print it in the end.
+Q3. Given a 2D array of n rows and m columns, return the sum of elements along the range of row and
+column specified.
+
+import java.util.Scanner;
+public class Test {
+public static void main(String[] args) {
+Scanner scn = new Scanner(System.in);
+System.out.println("Enter the dimensions of the 2d array: ");
+int n = scn.nextInt();
+int m = scn.nextInt();
+int[][] mat = new int[n][m];
+System.out.println("Enter the elements of the array: ");
+for(int i = 0; i < n; i++){
+for(int j = 0; j < m; j++){
+mat[i][j] = scn.nextInt();
+}
+}
+Code:
+Assignment Solutions
+
+Cracking the Coding Interview in Java - Foundation
+
+Q4. Given a 2D array for n rows and m columns, reverse each row.
+Input:
+n = 3
+m = 3
+arr[][] = {{1, 2, 3}, {6, 7, 8}, {9, 10, 11}}
+Expected Output:
+{{3, 2, 1}, {8, 7, 6}, {11, 10, 9}}
+Explanation:
+Traverse each row by a for loop and for every row, use 2 pointers for 1st and last column, and reverse the
+row using 2 pointer approach.
+•
+
+Assignment Solutions
+
+Cracking the Coding Interview in Java - Foundation
+
+for(int i = 0; i < n; i++){
+int a = 0;
+int b = m-1;
+while(a < b){
+int temp = mat[i][a];
+mat[i][a] = mat[i][b];
+mat[i][b] = temp;
+a++;
+b--;
+}
+}
+for(int i = 0; i < n; i++){
+for(int j = 0; j < m; j++){
+System.out.print(mat[i][j] + " ");
+}
+System.out.println();
+}
+}
+}
+
+Assignment Solutions
+
+Cracking the Coding Interview in Java - Foundation
+
+import java.util.Arrays;
+import java.util.Scanner;
+public class Test{
+public static void main(String[] args){
+Scanner scn = new Scanner(System.in);
+System.out.println("Enter the dimensions of the array: ");
+int n = scn.nextInt();
+int m = scn.nextInt();
+int[][] arr = new int[n][m];
+System.out.println("Enter the elements of the array: ");
+for(int i = 0; i < n; i++){
+for(int j = 0; j < m; j++){
+arr[i][j] = scn.nextInt();
+}
+}
+System.out.println("Enter the element to be searched: ");
+int x = scn.nextInt();
+int i = 0, j = m - 1;
+while (i < n && j >= 0) {
+if (arr[i][j] == x) {
+System.out.println("Row = " + i);
+System.out.println("Column = " + j);
+return;
+}
+Code:
+Explanation:
+Use 2 pointers i and j for row and column respectively.
+Initialize i from first row and j from last column
+Use a while loop and If current element at ith and jth position matches x, print and return
+If current element is greater than x, then x lies in this row but in previous col as they are sorted, so decrement j.
+Q5. Check if an element x exists in the given sorted matrix or not. Each row and column is sorted in itself. If it
+does not exist, return -1, else return its row and column index.
+Input:
+n = 3
+m = 3
+arr[][] = {{1,4,7}, {2,5,8}, {3,6,9}}
+x = 6
+Expected Output:
+Row = 2
+Column = 1
+
+•
+•
+•
+•
+•
+• Break out of loop, if any of i or j goes out of bound, in this case we return -1.
+If current element is less than x, element is not in this row as we are already standing at largest element in this
+row, so increment x.
+
+Assignment Solutions
+
+Cracking the Coding Interview in Java - Foundation
+
+if (arr[i][j] > x)
+j--;
+else
+i++;
+}
+System.out.print(-1);
+}
+}

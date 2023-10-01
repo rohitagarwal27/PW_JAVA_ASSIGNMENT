@@ -1,0 +1,222 @@
+Q1 - Write a program which takes the values of length and breadth from user and check if it is a square or
+not.
+Enter length:
+5
+Enter breadth:
+4
+
+It is a rectangle
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+Scanner sc=new Scanner(System.in);
+int length;
+System.out.print("Enter the length : ");
+length=sc.nextInt();
+int breadth;
+System.out.print("Enter the breadth : ");
+breadth=sc.nextInt();
+if(length==breadth)
+{
+System.out.print("It is a square");
+}else{
+System.out.print("It is not a square");
+}
+}
+}
+Sample Input :
+
+Sample Output :
+Assignment Solutions
+
+Cracking the Coding Interview in JAVA - Foundation
+Q2 - Write a program to print absolute value of a number entered by the user.
+
+-1
+1
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+Scanner sc=new Scanner(System.in);
+int num;
+System.out.print("Enter the number : ");
+num=sc.nextInt();
+if(num<0)
+{
+num=num*-1;
+}
+System.out.print("The absolute value is : " + num);
+}
+}
+Sample Input :
+Sample Output :
+Assignment Solutions
+
+Cracking the Coding Interview in JAVA - Foundation
+
+Q3 - Write a program to take input from user for Cost Price (C.P.) and Selling Price(S.P.) and calculate Profit
+or Loss.
+Explanation : Formula for profit and loss
+Profit = S.P - C.P
+Loss = C.P - S.P
+(S.P is Selling Price and C.P is Cost Price)
+Enter cost price: 4000
+Enter selling price: 9560
+Profit = 5560
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+Scanner sc=new Scanner(System.in);
+int cp;
+int sp;
+System.out.print("Enter the Cost Price : ");
+cp=sc.nextInt();
+System.out.print("Enter the Selling Price : ");
+sp=sc.nextInt();
+int amt;
+if(cp>sp)
+{
+amt=cp-sp;
+System.out.print("The loss is : "+amt);
+}else if(cp<sp)
+{
+amt=sp-cp;
+System.out.print("The profit is : "+amt);
+}else{
+System.out.print("No Profit No Loss");
+}
+}
+}
+Sample Input :
+
+Sample Output :
+Assignment Solutions
+
+Cracking the Coding Interview in JAVA - Foundation
+
+Assignment Solutions
+
+Cracking the Coding Interview in JAVA - Foundation
+
+Q4 - Write a program to print positive number entered by the user, if user enters a negative number, it is
+skipped.
+
+Enter an integer: -6
+The number is negative and skipped
+
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+Scanner sc=new Scanner(System.in);
+int x;
+System.out.print("Enter the Number : ");
+x=sc.nextInt();
+if(x>=0)
+{
+System.out.print("You entered a positive number");
+}else{
+System.out.print("You number is negative and is skipped");
+}
+}
+}
+Sample Input :
+Sample Output :
+Assignment Solutions
+
+Cracking the Coding Interview in JAVA - Foundation
+
+Q5 - Create a calculator using switch statement to perform addition, subtraction, multiplication and division.
+Enter an operator (+, -, *, /): -
+Enter two numbers:
+6
+8
+
+6 - 8 = -2
+import java.util.*;
+class Main {
+public static void main(String[] args) {
+char op;
+Double num1;
+Double num2;
+Double ans;
+Scanner sc = new Scanner(System.in);
+System.out.print("Enter an operator: (+, -, *, or /)");
+op = sc.next().charAt(0);
+System.out.print("Enter first number : ");
+num1 = sc.nextDouble();
+System.out.print("Enter second number : ");
+num2 = sc.nextDouble();
+switch (op) {
+case '+':
+ans = num1 + num2;
+System.out.println(num1 + " + " + num2 + " = " + ans);
+break;
+case '-':
+ans = num1 - num2;
+System.out.println(num1 + " - " + num2 + " = " + ans);
+break;
+case '*':
+ans = num1 * num2;
+System.out.println(num1 + " * " + num2 + " = " + ans);
+break;
+case '/':
+ans = num1 / num2;
+System.out.println(num1 + " / " + num2 + " = " + ans);
+break;
+default:
+System.out.println("Error! The operator is not correct");
+break;
+}
+}
+}
+Sample Input :
+
+Sample Output :
+Assignment Solutions
+
+Cracking the Coding Interview in JAVA - Foundation
+Q6 - Write a program to calculate marks to grades . Follow the conversion rule as given below :
+
+Enter Your Marks: 98
+
+Sample Output :
+import java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+Scanner sc=new Scanner(System.in);
+int marks;
+System.out.print("Enter the marks : ");
+marks=sc.nextInt();
+if(marks>=90)
+{
+System.out.print("Your Grade is A+");
+}else if(marks>=80)
+{
+System.out.print("Your Grade is A");
+}else if(marks>=70)
+{
+System.out.print("Your Grade is B+");
+}else if(marks>=60)
+{
+System.out.print("Your Grade is B");
+}else if(marks>=50)
+{
+System.out.print("Your Grade is C");
+}else if(marks>=40)
+{
+System.out.print("Your Grade is D");
+}else if(marks>=30)
+{
+System.out.print("Your Grade is E");
+}else if(marks<30){
+System.out.print("Your Grade is f");
+}else{
+System.out.print("Enter valid marks");
+}
+}
+}

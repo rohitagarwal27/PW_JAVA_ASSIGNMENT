@@ -1,0 +1,189 @@
+Q1. Create a class named 'Student' with String variable 'name' and integer variable 'roll_no'. Assign
+the value of roll_no as '2' and that of name as "John" by creating an object of the class Student.
+
+class Student{
+String name;
+int roll_no;
+}
+public class Test {
+public static void main(String[] args) {
+Student s = new Student();
+s.name = "John";
+s.roll_no = 2;
+System.out.println("Name of student s is: " + s.name + " and roll number is: " + s.roll_no);
+}
+}
+Q1. Create a class named 'Student' with String variable 'name' and integer variable 'roll_no'. Assign
+the value of roll_no as '2' and that of name as "John" by creating an object of the class Student.
+Code:
+
+class Triangle{
+int a,b,c;
+public double getArea(){
+double s = (a+b+c)/2.0;
+return Math.pow((s*(s-a)*(s-b)*(s-c)),.5);
+}
+public double getPerimeter(){
+return (a+b+c)/2.0;
+}
+}
+public class Test {
+public static void main(String[] args){
+Triangle t = new Triangle();
+t.a = 2;
+t.b = 5;
+t.c = 6;
+System.out.println(t.getArea());
+System.out.println(t.getPerimeter());
+}
+}
+Code:
+Q2. Write a program to print the area and perimeter of a triangle having sides of 3, 4 and 5 units by
+creating a class named 'Triangle' without any parameter in its constructor.
+
+Assignment Solutions
+
+Cracking the Coding Interview in Java - Foundation
+
+Code:
+Q3. Write a program to print the area of a rectangle by creating a class named 'Area' taking the values
+of its length and breadth as parameters of its constructor and having a method named 'returnArea'
+which returns the area of the rectangle. Length and breadth of rectangle are entered through keyboard.
+
+import java.util.*;
+class Area{
+int length;
+int breadth;
+public Area(int l, int b){
+length = l;
+breadth = b;
+}
+public int getArea(){
+return length*breadth;
+}
+}
+public class Test {
+public static void main(String[] args){
+Scanner s = new Scanner(System.in);
+int l,b;
+System.out.println("Enter length");
+l = s.nextInt();
+System.out.println("Enter breadth");
+b = s.nextInt();
+Area a = new Area(l,b);
+System.out.println("Area : "+a.getArea());
+}
+}
+
+Assignment Solutions
+
+Cracking the Coding Interview in Java - Foundation
+
+Code:
+Q4. Print the sum, difference and product of two complex numbers by creating a class named
+'Complex' with separate methods for each operation whose real and imaginary parts are
+entered by user..
+import java.util.Scanner;
+class Complex{
+int real;
+int imag;
+public Complex(int r, int i){
+real = r;
+imag = i;
+}
+public static Complex add(Complex a, Complex b){
+return new Complex((a.real+b.real),(a.imag+b.imag));
+}
+public static Complex diff(Complex a, Complex b){
+return new Complex((a.real-b.real),(a.imag-b.imag));
+}
+public static Complex product(Complex a, Complex b){
+return new Complex(((a.real*b.real)-(a.imag*b.imag)),((a.real*b.imag)+(a.imag*b.real)));
+}
+public void printComplex(){
+if(real == 0 && imag!=0){
+System.out.println(imag+"i");
+}
+else if(imag == 0 && real!=0){
+System.out.println(real);
+}
+else{
+System.out.println(real+"+"+imag+"i");
+}
+}
+}
+class Ans{
+public static void main(String[] args){
+Scanner scn = new Scanner(System.in);
+System.out.println(“Enter real part of complex number 1: ”);
+int real1 = scn.nextInt();
+System.out.println(“Enter complex part of complex number 1 without iota sign: ”);
+int comp1 = scn.nextInt();
+System.out.println(“Enter real part of complex number 2: ”);
+int real2 = scn.nextInt();
+System.out.println(“Enter complex part of complex number 2 without iota sign: ”);
+int comp2 = scn.nextInt();
+Complex c = new Complex(real1, comp1);
+Complex d = new Complex(real2, comp2);
+Complex e = Complex.add(c,d);
+Complex f = Complex.diff(c,d);
+Complex g = Complex.product(c,d);
+e.printComplex();
+f.printComplex();
+g.printComplex();
+}
+}
+
+Assignment Solutions
+
+Cracking the Coding Interview in Java - Foundation
+
+Q5. Write a program that would print the information (name, year of joining, salary, address) of three
+employees by creating a class named 'Employee'. The output should be as follows:
+
+Name
+
+Robert 1994
+
+2000
+
+1999
+
+Sam
+
+John
+
+Year of joining Address
+64C- WallsStreet
+
+68D- WallsStreet
+
+26B- WallsStreet
+
+Code:
+class Employee{
+String name;
+int yoj;
+int salary;
+String address;
+}
+public class Test {
+public static void main(String[] args){
+Employee a = new Employee();
+a.name = "Robert";
+a.yoj = 1994;
+a.address = "64C- WallsStreet";
+Employee b = new Employee();
+b.name = "Sam";
+b.yoj = 2000;
+b.address = "64D- WallsStreet";
+Employee c = new Employee();
+c.name = "John";
+c.yoj = 1999;
+c.address = "26B- WallsStreet";
+System.out.println("Name" + "\t" + "Year of joining" + "\t" + "Address");
+System.out.println(a.name + "\t" + a.yoj + "\t" + a.address);
+System.out.println(b.name + "\t" + b.yoj + "\t" + b.address);
+System.out.println(c.name + "\t" + c.yoj + "\t" + c.address);
+}
+}

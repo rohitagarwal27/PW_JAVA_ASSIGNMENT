@@ -1,0 +1,834 @@
+1. Impliment doubly linked list as a class with function to insert a node and traverse the list in both forward and reverse direction.
+
+public class DoublyLinkedList {
+    private Node head;
+    private Node tail;
+
+    private class Node {
+        int data;
+        Node prev;
+        Node next;
+
+        public Node(int data) {
+            this.data = data;
+            this.prev = null;
+            this.next = null;
+        }
+    }
+
+    public void insert(int data) {
+        Node newNode = new Node(data);
+        
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
+        }
+    }
+
+    public void traverseForward() {
+        Node current = head;
+        
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.next;
+        }
+        
+        System.out.println();
+    }
+    
+    public void traverseBackward() {
+        Node current = tail;
+        
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.prev;
+        }
+        
+        System.out.println();
+    }
+    
+    public static void main(String[] args) {
+        DoublyLinkedList list = new DoublyLinkedList();
+        
+        list.insert(1);
+        list.insert(2);
+        list.insert(3);
+        
+        System.out.print("Forward traversal: ");
+        list.traverseForward();
+        
+        System.out.print("Backward traversal: ");
+        list.traverseBackward();
+    }
+}
+
+==============================================================================================================================================
+2. Given the head of a doubly linked list, remove all the nodes from the linked list that have the value x stored
+in them.The first line of input contains n (the size of the linled list) and x.The second line of input contains
+the elements of the linled list.
+INPUT
+4
+31 3 2 3
+OUTPUT
+1 2
+import java.util.Scanner;
+
+public class DoublyLinkedList {
+    private Node head;
+    private Node tail;
+
+    private class Node {
+        int data;
+        Node prev;
+        Node next;
+
+        public Node(int data) {
+            this.data = data;
+            this.prev = null;
+            this.next = null;
+        }
+    }
+
+    public void insert(int data) {
+        Node newNode = new Node(data);
+        
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
+        }
+    }
+    
+    public void remove(int x) {
+        Node current = head;
+        
+        while (current != null) {
+            if (current.data == x) {
+                if (current == head) {
+                    head = current.next;
+                    if (head != null) {
+                        head.prev = null;
+                    }
+                } else if (current == tail) {
+                    tail = current.prev;
+                    if (tail != null) {
+                        tail.next = null;
+                    }
+                } else {
+                    current.prev.next = current.next;
+                    current.next.prev = current.prev;
+                }
+            }
+            current = current.next;
+        }
+    }
+    
+    public void traverse() {
+        Node current = head;
+        
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.next;
+        }
+        
+        System.out.println();
+    }
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int x = scanner.nextInt();
+        
+        DoublyLinkedList list = new DoublyLinkedList();
+        for (int i = 0; i < n; i++) {
+            list.insert(scanner.nextInt());
+        }
+        
+        list.remove(x);
+        list.traverse();
+        
+        scanner.close();
+    }
+}
+
+==============================================================================================================================================
+3. Given the head of a doubgy ginled gist which stores ongy binary vagues i.e. 1’s and 0’s. In the ginled gist male
+sure that between every 2 nodes containing vague 1, there exist an even number of 0’s. If the number of 0’s is
+odd then insert a node with vague 0 in between the two 1’s. Assume that the first and the gast node contains
+vague 1.
+The first gine of input contains n, the size of the ginled gist.The second gine of input contains the egements
+of the ginled gist.
+INPUT
+6
+1 0 0 1 0 1
+OUTPUT
+1->0->0->1->0->0->1
+INPUT
+5
+1 1 0 1 1
+OUTPUT
+1->1->0->0->1->1
+
+import java.util.Scanner;
+
+public class DoublyLinkedList {
+    private Node head;
+    private Node tail;
+
+    private class Node {
+        int data;
+        Node prev;
+        Node next;
+
+        public Node(int data) {
+            this.data = data;
+            this.prev = null;
+            this.next = null;
+        }
+    }
+
+    public void insert(int data) {
+        Node newNode = new Node(data);
+        
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
+        }
+    }
+    
+    public void ensureEvenZerosBetweenOnes() {
+        Node current = head;
+        
+        while (current != null && current.next != null) {
+            if (current.data == 1 && current.next.data == 1) {
+                Node betweenOnes = current.next;
+                
+                // Count the number of zeros between the ones
+                int countZeros = 0;
+                while (betweenOnes != null && betweenOnes.data == 0) {
+                    countZeros++;
+                    betweenOnes = betweenOnes.next;
+                }
+                
+                if (countZeros % 2 != 0) {
+                    // Insert a new node with value 0 between the ones
+                    Node newNode = new Node(0);
+                    newNode.next = current.next;
+                    current.next = newNode;
+                    newNode.prev = current;
+                    if (newNode.next != null) {
+                        newNode.next.prev = newNode;
+                    }
+                }
+                
+                // Skip the zeros we just counted
+                current = betweenOnes;
+            } else {
+                current = current.next;
+            }
+        }
+    }
+    
+    public void traverse() {
+        Node current = head;
+        
+        while (current != null) {
+            System.out.print(current.data + "->");
+            current = current.next;
+        }
+        
+        System.out.println();
+    }
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        
+        DoublyLinkedList list = new DoublyLinkedList();
+        for (int i = 0; i < n; i++) {
+            list.insert(scanner.nextInt());
+        }
+        
+        list.ensureEvenZerosBetweenOnes();
+        list.traverse();
+        
+        scanner.close();
+    }
+}
+
+==============================================================================================================================================
+4. You are given two non-empty doubgy ginled gists representing two non-negative integers, and each of
+their nodes contains a singge digit. Subtract the two numbers and return the difference as a ginled gist. It is
+guaranteed that the first number wigg agways be greater than the second number.The first gine of input
+contains n and m, the size of the first and second ginled gist respectivegy.The second gine of input contains
+the egements of the first ginled gist.The third gine of input contains the egements of the second ginled gist.
+Input
+3 2
+8 2 3
+3 4
+Output
+7 8 9
+
+public class ListNode {
+    int val;
+    ListNode next;
+    ListNode(int x) { val = x; }
+}
+
+public ListNode subtractLinkedLists(ListNode l1, ListNode l2) {
+    ListNode result = new ListNode(0);
+    ListNode curr = result;
+    int borrow = 0;
+    while (l1 != null || l2 != null) {
+        int val1 = l1 != null ? l1.val : 0;
+        int val2 = l2 != null ? l2.val : 0;
+        int diff = val1 - val2 - borrow;
+        if (diff < 0) {
+            diff += 10;
+            borrow = 1;
+        } else {
+            borrow = 0;
+        }
+        curr.next = new ListNode(diff);
+        curr = curr.next;
+        if (l1 != null) l1 = l1.next;
+        if (l2 != null) l2 = l2.next;
+    }
+    if (borrow > 0) {
+        curr.next = new ListNode(borrow);
+    }
+    return result.next;
+}
+
+==============================================================================================================================================
+5. Given the head of a doubgy ginled gist. Divide the gist into 2 parts- one containing odd vagues and the other
+containing even vagues. Return the array containing the two ginled gists. The order of the nodes must be
+maintained.The first gine of input contains n, the size of the ginled gist.The second gine of input contains the
+egements of the ginled gist.
+Input
+61 10 2 5 3 4
+Output: 1→5→3→NULL
+10→2→4→NULL
+class Node {
+    int data;
+    Node next;
+    Node prev;
+    public Node(int data) {
+        this.data = data;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {61, 10, 2, 5, 3, 4};
+        int n = arr.length;
+
+        Node head = new Node(arr[0]);
+        Node tail = head;
+        for (int i = 1; i < n; i++) {
+            Node node = new Node(arr[i]);
+            node.prev = tail;
+            tail.next = node;
+            tail = node;
+        }
+
+        Node oddHead = null, oddTail = null, evenHead = null, evenTail = null;
+
+        Node curr = head;
+        while (curr != null) {
+            if (curr.data % 2 == 0) {
+                if (evenHead == null) {
+                    evenHead = evenTail = curr;
+                } else {
+                    evenTail.next = curr;
+                    curr.prev = evenTail;
+                    evenTail = curr;
+                }
+            } else {
+                if (oddHead == null) {
+                    oddHead = oddTail = curr;
+                } else {
+                    oddTail.next = curr;
+                    curr.prev = oddTail;
+                    oddTail = curr;
+                }
+            }
+            curr = curr.next;
+        }
+
+        // Terminate the two lists
+        if (oddTail != null) {
+            oddTail.next = null;
+        }
+        if (evenTail != null) {
+            evenTail.next = null;
+        }
+
+        // Print the odd list
+        System.out.print("Odd List: ");
+        curr = oddHead;
+        while (curr != null) {
+            System.out.print(curr.data + " ");
+            curr = curr.next;
+        }
+        System.out.println();
+
+        // Print the even list
+        System.out.print("Even List: ");
+        curr = evenHead;
+        while (curr != null) {
+            System.out.print(curr.data + " ");
+            curr = curr.next;
+        }
+        System.out.println();
+    }
+}
+
+==============================================================================================================================================
+6. Given the head of a doubly linked list and a pointer to a node present in the list. Delete the node from the
+list.
+Input
+1 3 2 4
+Node = 2
+Output: 1→3→4→NULL
+
+class DoublyLinkedListNode {
+    int data;
+    DoublyLinkedListNode prev;
+    DoublyLinkedListNode next;
+    DoublyLinkedListNode(int data) { this.data = data; }
+}
+
+public class Main {
+    public static void deleteNode(DoublyLinkedListNode node) {
+        if (node == null) return;  // nothing to delete
+        if (node.prev != null) node.prev.next = node.next; // adjust prev node's next pointer
+        if (node.next != null) node.next.prev = node.prev; // adjust next node's prev pointer
+    }
+
+    public static void main(String[] args) {
+        DoublyLinkedListNode head = new DoublyLinkedListNode(1);
+        head.next = new DoublyLinkedListNode(3);
+        head.next.prev = head;
+        head.next.next = new DoublyLinkedListNode(2);
+        head.next.next.prev = head.next;
+        head.next.next.next = new DoublyLinkedListNode(4);
+        head.next.next.next.prev = head.next.next;
+
+        DoublyLinkedListNode nodeToDelete = head.next.next; // node with data=2 to delete
+        deleteNode(nodeToDelete);
+
+        DoublyLinkedListNode curr = head;
+        while (curr != null) {
+            System.out.print(curr.data + " ");
+            curr = curr.next;
+        }
+    }
+}
+
+==============================================================================================================================================
+7. Given the head of a doubly linked list. Find the number of non-decreasing sublists. A sublist is a part of a
+linked list that can be created by removing some number of elements from the beginning of the list and the
+end of the list. Note: Each sublist should contain at least 2 members.The first line of input contains n, the size
+of the linked list.The second line of input contains the elements of the linked list.
+Input
+6
+3 4 5 2 1 4
+Output
+3
+Explanation:The 3 non-decreasing sublists are-3->4->54→51->4
+
+import java.util.Scanner;
+
+class Node {
+    int data;
+    Node prev, next;
+    Node(int data) {
+        this.data = data;
+        this.prev = null;
+        this.next = null;
+    }
+}
+
+public class Main {
+    public static int countNonDecreasingSublists(Node head) {
+        int count = 0;
+        int len = 1;
+        Node curr = head;
+        while (curr.next != null) {
+            if (curr.next.data >= curr.data) {
+                len++;
+            } else {
+                if (len >= 2) {
+                    count++;
+                }
+                len = 1;
+            }
+            curr = curr.next;
+        }
+        if (len >= 2) {
+            count++;
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        Node head = null, tail = null;
+        for (int i = 0; i < n; i++) {
+            int data = sc.nextInt();
+            Node newNode = new Node(data);
+            if (head == null) {
+                head = tail = newNode;
+            } else {
+                tail.next = newNode;
+                newNode.prev = tail;
+                tail = newNode;
+            }
+        }
+        System.out.println(countNonDecreasingSublists(head));
+    }
+}
+
+==============================================================================================================================================
+8. Given a sorted doubly linked list, find the number of triplets of distinct nodes such that their sum is equal
+to x.
+The first line of input contains n, the size of the linked list, and the value of x.
+The second line of input contains the elements of the linked list.
+Input
+5 4
+1 2 1 1 2
+Output
+6
+
+import java.util.Scanner;
+
+class Node {
+    int data;
+    Node prev;
+    Node next;
+
+    Node(int val) {
+        data = val;
+        prev = null;
+        next = null;
+    }
+}
+
+public class Main {
+
+    static int countTriplets(Node head, int x) {
+        if (head == null || head.next == null || head.next.next == null) {
+            // less than 3 nodes in the list, no triplets possible
+            return 0;
+        }
+
+        int count = 0;
+        Node curr = head, left, right, last = head;
+        while (last.next != null) {
+            last = last.next;
+        }
+
+        // fix the first node of the triplet
+        while (curr.next != null) {
+            left = curr.next;
+            right = last;
+            int remainingSum = x - curr.data;
+
+            // find all pairs whose sum is equal to the remaining sum
+            while (left != right && left.prev != right) {
+                int pairSum = left.data + right.data;
+
+                if (pairSum == remainingSum) {
+                    count++;
+                    left = left.next;
+                    right = right.prev;
+                } else if (pairSum < remainingSum) {
+                    left = left.next;
+                } else {
+                    right = right.prev;
+                }
+            }
+            curr = curr.next;
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int x = sc.nextInt();
+        Node head = null, tail = null;
+        for (int i = 0; i < n; i++) {
+            int val = sc.nextInt();
+            Node newNode = new Node(val);
+            if (head == null) {
+                head = newNode;
+                tail = newNode;
+            } else {
+                newNode.prev = tail;
+                tail.next = newNode;
+                tail = newNode;
+            }
+        }
+        System.out.println(countTriplets(head, x));
+    }
+}
+
+==============================================================================================================================================
+9. Implement the class of a circular linked list with "insert(int val)", and "print()" functions.
+public class CircularLinkedList {
+    Node head;
+
+    class Node {
+        int val;
+        Node next;
+
+        Node(int val) {
+            this.val = val;
+            next = null;
+        }
+    }
+
+    public void insert(int val) {
+        Node newNode = new Node(val);
+
+        if (head == null) {
+            head = newNode;
+            newNode.next = head;
+        } else {
+            Node curr = head;
+            while (curr.next != head) {
+                curr = curr.next;
+            }
+            curr.next = newNode;
+            newNode.next = head;
+        }
+    }
+
+    public void print() {
+        Node curr = head;
+        if (head != null) {
+            do {
+                System.out.print(curr.val + " ");
+                curr = curr.next;
+            } while (curr != head);
+        }
+        System.out.println();
+    }
+}
+
+==============================================================================================================================================
+10 .You are given a circular linked list in the form of a string. Each node of the linked list contains either a
+dot(‘.’) or a star(’*’). Your task is to make sure that between every consecutive dot there are not more than 2
+stars. For this you can delete a star in between any 2 dots. Count the minimum number of stars that you will
+have to delete.
+It is guaranteed that there is at least 1 dot character.
+The first line of input contains a string s, the nodes of the linked list.
+INPUT.
+***.****.*
+OUTPUT
+3
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String s = input.next();
+        int count = 0;
+        boolean hasDot = false;
+        boolean hasMoreThanTwoStars = false;
+        
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            
+            if (c == '.') {
+                hasDot = true;
+                if (hasMoreThanTwoStars) {
+                    count++;
+                    hasMoreThanTwoStars = false;
+                }
+            } else {
+                if (hasDot) {
+                    hasMoreThanTwoStars = true;
+                }
+            }
+        }
+        
+        if (hasMoreThanTwoStars) {
+            count++;
+        }
+        
+        System.out.println(count);
+    }
+
+}
+
+==============================================================================================================================================
+11. You are given a circular linked list in the form of a string. Each node contains either a dot(‘.’) or a star(’*’).
+Your task is to make sure that between every consecutive dot there are at least 2 stars. For this you can add
+a star in between any 2 dots. Count the minimum number of stars that you will have to add.
+It is guaranteed that there is at least 1 dot character.
+The first line of input contains a string s, the nodes of the linked list.
+INPUT
+.*.**.
+OUTPUT
+3
+
+import java.util.*;
+
+public class Main {
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        
+        int count = 0;
+        int n = s.length();
+        
+        for (int i = 0; i < n; i++) {
+            if (s.charAt(i) == '.') {
+                int j = (i + 1) % n;
+                int stars = 0;
+                while (s.charAt(j) == '*') {
+                    stars++;
+                    j = (j + 1) % n;
+                }
+                if (stars < 2) {
+                    count += (2 - stars);
+                    s = s.substring(0, j) + "**" + s.substring(j);
+                }
+            }
+        }
+        
+        System.out.println(count);
+    }
+}
+
+==============================================================================================================================================
+12. You are given a circular linked list in the form of a string. Each node contains either a dot(‘.’) or a star(’*’).
+Your task is to make sure that between every consecutive dot there are exactly 2 stars. For this you can add
+or delete a star in between any 2 dots. Return the updated linked list.
+It is guaranteed that there is at least 1 dot character.
+The first line of input contains a string s, the nodes of the linked list.
+INPUT
+.*.***.
+OUTPUT.→*→*→.→*→*→.→*→*
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        int count = 0;
+        StringBuilder sb = new StringBuilder(s);
+        int n = sb.length();
+        int i = 0;
+        while (i < n) {
+            if (sb.charAt(i) == '.') {
+                int j = i + 1;
+                int starCount = 0;
+                while (j < n && sb.charAt(j) == '*') {
+                    starCount++;
+                    j++;
+                }
+                if (starCount > 2) {
+                    sb.delete(i + 1, j);
+                    count += starCount - 2;
+                    n -= starCount - 2;
+                } else if (starCount < 2) {
+                    sb.insert(j, "*".repeat(2 - starCount));
+                    count += 2 - starCount;
+                    n += 2 - starCount;
+                }
+                i = j;
+            } else {
+                i++;
+            }
+        }
+        System.out.println(sb.toString());
+    }
+}
+
+==============================================================================================================================================
+13. You are given a circular linked list with integer values. Your task is to find the sum of values present at
+opposite positions.
+It is guaranteed that the size of the linked list is even.
+The first line of input contains n, the size of the linked list.
+The second line of input contains the elements of the linked list.
+INPUT
+6
+1 2 3 7 8 9
+OUTPUT
+
+import java.util.*;
+
+class Node {
+    int data;
+    Node next;
+ 
+    Node(int d) {
+        data = d;
+        next = null;
+    }
+}
+
+class Main {
+    static int findOppositeSum(Node head) {
+        if (head == null)
+            return 0;
+ 
+        int sum = 0;
+        Node temp = head;
+ 
+        do {
+            sum += temp.data - temp.next.data;
+            temp = temp.next.next;
+        } while (temp != head);
+ 
+        return sum;
+    }
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+ 
+        Node head = null, tail = null;
+ 
+        for (int i = 0; i < n; i++) {
+            int val = sc.nextInt();
+            Node newNode = new Node(val);
+ 
+            if (head == null) {
+                head = newNode;
+                tail = newNode;
+            } else {
+                tail.next = newNode;
+                tail = newNode;
+            }
+        }
+ 
+        tail.next = head;
+        int oppositeSum = findOppositeSum(head);
+        System.out.println(oppositeSum);
+    }
+}
+
+==============================================================================================================================================

@@ -1,0 +1,25 @@
+1]Why do we need a static keyword in Java to explain with an example? 
+→To manage the memory
+
+2]what is class loading and how does the Java program executive? 
+→java class and environment dynamically load Java classes into the Java machine
+
+
+3]can we mark a local variable as a static
+→yes can use static only on a local variable
+
+4]Why is the static block exhibited before the primary method in Java 
+→Because the compiler store in memory at the time of class loading and before the object creation
+
+
+5]Why is the static method also called a class method?
+→A static method is a method that belongs to a class rather than an instance of a class
+
+6] what is the use of static blocks in Java 
+→changing the default value
+
+7]difference between static  and Instance variables 
+Instance variables are created when an object is made with the use of the Keyword new and destroyed when the thing is destroyed when object discharged static variables are created when the program is started and start when the programs topper instant variable can be existed directly by calling the variable name inside the class 
+
+8]difference between static and non-static members
+→ static members are one per class but non-static members are one per instance

@@ -1,0 +1,132 @@
+Q1 - Convert a decimal number into binary
+  input = 56
+  output = 111000
+
+import java.util.Scanner;
+public class Test 
+{
+  public static void main(String[] args) 
+  {
+  Scanner scn = new Scanner(System.in);
+  System.out.println(“Enter the decimal number: ”);
+   int n = scn.nextInt();
+   int binarynum = 0;
+   int power = 1;
+       while(n != 0)
+       {
+       int rem = n % 2;
+       binarynum += rem * power;
+       power *= 10;
+       n /= 2;
+       }
+       System.out.print(binarynum);
+  }
+}
+
+
+
+
+Q2 - Convert a binary number to decimal
+ip = 10100011
+
+op = 163
+
+import java.util.Scanner;
+public class Test {
+public static void main(String[] args) {
+Scanner scn = new Scanner(System.in);
+System.out.println(“Enter the binary number: ”);
+int n = scn.nextInt();
+int decimalnum = 0;
+int power = 1;
+while(n != 0){
+int rem = n % 2;
+decimalnum += rem * power;
+power *= 2;
+n /= 10;
+}
+System.out.print(decimalnum);
+}
+}
+
+
+
+
+Q3 - Add two numbers given in different base
+
+import java.util.Scanner;
+public class Test {
+public static void main(String[] args) {
+Scanner scn = new Scanner(System.in);
+System.out.println(“Enter the decimal number: ”);
+int m = scn.nextInt();
+System.out.println(“Enter the binary number: ”);
+int n = scn.nextInt();
+int decimalnum = 0;
+int power = 1;
+while(n != 0){
+int rem = n % 2;
+decimalnum += rem * power;
+power *= 2;
+n /= 10;
+}
+System.out.print(m+decimalnum);
+}
+}
+
+
+Q4 - Multiply two numbers given in different base
+
+import java.util.Scanner;
+public class Test {
+public static void main(String[] args) {
+Scanner scn = new Scanner(System.in);
+System.out.println(“Enter the decimal number: ”);
+int m = scn.nextInt();
+System.out.println(“Enter the binary number: ”);
+int n = scn.nextInt();
+int decimalnum = 0;
+int power = 1;
+while(n != 0){
+int rem = n % 2;
+decimalnum += rem * power;
+power *= 2;
+n /= 10;
+}
+System.out.print(m*decimalnum);
+}
+}
+
+
+
+Q5 - Convert a decimal double number into binary string for upto k precision digits
+
+import java.util.Scanner;
+public class Test {
+public static void main(String[] args) {
+Scanner scn = new Scanner(System.in);
+System.out.println(“Enter the decimal double number: ”);
+double n = scn.nextDouble();
+System.out.println(“Enter the number of precision digits: ”);
+int k = scn.nextInt();
+int decimal_n = (int)n;
+double fractional_n = n - decimal_n;
+int decimal_binary = 0;
+int power = 1;
+while(decimal_n != 0) {
+int rem = decimal_n % 2;
+decimal_binary += rem * power;
+power *= 10;
+decimal_n /= 2;
+}
+String s = Integer.toString(decimal_binary) + ".";
+while(k > 0 && fractional_n != 0){
+fractional_n *= 2;
+int digit = (int)fractional_n;
+s += digit;
+fractional_n = fractional_n - digit;
+k--;
+}
+System.out.print(s);
+}
+}

@@ -1,0 +1,38 @@
+1.what is computer ?
+A computer is an electronic device that can perform various operations 
+based on a set of instructions or programs. It consists of hardware and software components that work together to process and manipulate data.
+2.what is the RAM
+RAM stands for Random Access Memory, 
+which is a type of computer memory that stores data and program instructions that are 
+currently in use by the computer's CPU. RAM is a volatile memory, which means that it can only store data while 
+the computer is powered on. When the computer is turned off, the contents of RAM are lost.
+
+
+3.where the data stored in the computer ?
+Random Access Memory (RAM): As mentioned earlier, RAM is a volatile memory that stores data and program instructions that are currently in use by the computer's CPU.
+
+Read-Only Memory (ROM): ROM is a non-volatile memory that stores data and program instructions that are permanently stored in the computer. It typically contains the computer's firmware, including the BIOS that starts the computer when it is turned on.
+
+Hard Disk Drives (HDDs) and Solid-State Drives (SSDs): These are non-volatile storage devices that store data and programs even when the computer is turned off. HDDs store data on spinning disks, while SSDs use flash memory to store data.
+
+
+4.What is that input device used to type text and numbers on 3 documents in the computer system?
+The input device used to type text and numbers on documents in the computer system is called a keyboard. 
+A keyboard is a hardware device that is used to input text, numbers, and other symbols into a computer. 
+The keyboard typically contains letters, numbers, and special characters arranged in a specific layout, such 
+as the QWERTY layout. When a key on the keyboard is pressed, it sends an electrical signal to the computer, which then 
+registers the corresponding character or symbol on the screen. Keyboards can be connected to a computer via a USB or wireless connection.
+5.what are the output device
+printer,screen
+6.what are the input device that allow the user to move cursor and pointer on the screen
+Mouse: A mouse is a hand-held pointing device that is used to move the cursor on the screen. It typically has two or more buttons, which can be used to perform various actions, such as selecting, dragging, and scrolling.
+
+Trackball: A trackball is a pointing device that is similar to a mouse, but instead of moving the device itself, the user rotates a ball on the top of the device to move the cursor on the screen.
+
+Touchpad: A touchpad is a built-in pointing device on laptops and some desktop keyboards. It allows the user to move the cursor by sliding their finger across a flat surface.
+
+Joystick: A joystick is a pointing device that is commonly used in gaming applications. It consists of a stick that can be moved in various directions to control the movement of objects on the screen.
+7.whichn language is used to direct translate the programming language
+assembly 
+8.what are the input device
+mouse,keyboard

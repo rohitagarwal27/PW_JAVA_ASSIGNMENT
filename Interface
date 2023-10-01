@@ -1,0 +1,27 @@
+1. What is an interface in Java?
+Ans: An interface in Java is a mechanism that is used to achieve complete abstraction. It is basically a kind of
+class that contains only constants and abstract methods.
+
+2. Which modifiers are allowed for methods in an Interface?Explain with an example
+Ans: Only abstract and public modifiers are allowed for methods in interfaces.
+
+3. What is the use of interface in Java?
+Ans: There are many reasons to use interfaces in java. They are as follows:
+a. An interface is used to achieve full abstraction.
+b. Using interfaces is the best way to expose our project’s API to some other project.
+c. Programmers use interfaces to customise features of software differently for different objects.
+d. By using interface, we can achieve the functionality of multiple inheritance.
+
+
+4. What is the difference between abstract class and interface in Java?
+In Java, both abstract classes and interfaces are used to define common behavior that can be inherited by subclasses. However, there are several differences between them:
+
+Method implementation: An abstract class can have both abstract and non-abstract methods, whereas an interface can only have abstract methods (default methods and static methods were introduced in Java 8 and Java 9, respectively). Abstract methods are defined without an implementation, while non-abstract methods have an implementation.
+
+Multiple inheritance: A class can extend only one abstract class, but it can implement multiple interfaces. This means that interfaces can provide a way to achieve multiple inheritance in Java.
+
+Accessibility: Methods and variables in an interface are always public, whereas an abstract class can have any accessibility level. This means that interfaces can provide a more strict way to enforce behavior across different classes.
+
+Constructor: An abstract class can have a constructor, whereas an interface cannot have a constructor.
+
+Purpose: Abstract classes are typically used to represent a general type of object, while interfaces are typically used to define behavior that can be implemented by multiple classes.

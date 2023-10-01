@@ -1,0 +1,70 @@
+1. What is Input and Output Stream in Java?
+Ans: A stream can be defined as a sequence of data. The InputStream is used to read data from a source and
+the outputStream is used for writing data to a destination.
+===================================================================================================================================================================
+2. What are the methods of OutputStream4
+   write() - writes the specified byte to the output streamO
+   write(byte[] array) - writes the bytes from the specified array to the output stream
+   flush() - forces to write all data present in the output stream to the destination
+   close() - closes the output stream
+===================================================================================================================================================================
+3. What is serialization in Java?
+Ans: Serialization is the process of converting an object into a stream of bytes to transfer it over a network or to
+store it in a file or database. In Java, serialization is done by implementing the Serializable interface.
+===================================================================================================================================================================
+4. What is the Serializable interface in Java?
+Ans: The Serializable interface in Java is a marker interface that has no methods. It is used to mark classes that
+can be serialized, meaning their object instances can be converted into a stream of bytes.
+===================================================================================================================================================================
+5. What is deserialization in Java?
+Ans: Deserialization is the process of converting a stream of bytes back into an object instance. This is done
+after an object has been serialized.
+===================================================================================================================================================================
+6. How is serialization achieved in Java?
+Ans: Serialization is achieved in Java by implementing the Serializable interface. When an object is serialized, its
+state is converted into a stream of bytes, which can then be transferred over a network or stored in a file or
+database.
+===================================================================================================================================================================
+7. How is deserialization achieved in Java?
+Ans: Deserialization is achieved in Java by reading a stream of bytes and using them to recreate the original
+object instance. This is done by calling the readMbject() method of an MbjectInputStream instance.
+===================================================================================================================================================================
+8. How can you avoid certain member variables of class from getting Serialized?
+Ans: Mark member variables as static or transient, and those member variables will no more be a part of
+Serialization.
+===================================================================================================================================================================
+9. What classes are available in the Java IO File Classes API?
+Ans: The following classes are available in the Java IM API and are important to work with files in Java.
+File
+RandomAccessFile
+FileInputStream
+FileReader
+FileMutputStream
+FileWriter
+===================================================================================================================================================================
+10. What is Difference between Externalizable and Serialization interface ?
+Both Externalizable and Serializable are Java interfaces used for object serialization, which is 
+the process of converting Java objects into a byte stream that can be stored or transmitted over a network. 
+However, there are some key differences between the two interfaces:
+
+Control over Serialization: The Serializable interface provides a default serialization mechanism in Java, where all non-transient fields of an 
+                            object are automatically serialized. On the other hand, the Externalizable interface gives you complete control over
+                            the serialization process, as you need to implement the readExternal() and writeExternal() methods yourself.
+                            This means you can choose which fields to serialize or deserialize, and how they are serialized or deserialized.
+
+Custom Serialization Logic: With Externalizable, you can write custom logic for serialization and deserialization, 
+which allows you to optimize the process or handle complex scenarios, such as encrypting or compressing the serialized data.
+
+Serializable, on the other hand, provides a default serialization mechanism that may not always be efficient or suitable for all use cases.
+
+Size of Serialized Data: The serialized data generated by Externalizable tends to be smaller compared to Serializable, 
+as it allows you to omit unnecessary data or perform custom compression. Serializable, on the other hand, includes additional
+metadata and class information, which can increase the size of the serialized data.
+
+Performance: Externalizable can offer better performance compared to Serializable in certain scenarios, 
+as it allows you to optimize the serialization and deserialization process. However, this also means that 
+you need to write custom serialization logic, which may require more effort and careful consideration.
+
+Versioning: Externalizable allows you to define custom serialization logic for handling versioning of objects,
+which can be useful when dealing with different versions of serialized data. Serializable, on the other hand, 
+does not provide built-in support for versioning, which may require additional effort to handle versioning manually.

@@ -1,0 +1,135 @@
+1]write a program to remove duplicates from a string.
+  import java.util.LinkedHashSet;
+import java.util.Set;
+
+public class RemoveDuplicates {
+  public static String removeDuplicates(String input) {
+    Set<Character> set = new LinkedHashSet<>();
+    for (int i = 0; i < input.length(); i++) {
+      set.add(input.charAt(i));
+    }
+    StringBuilder sb = new StringBuilder();
+    for (Character character : set) {
+      sb.append(character);
+    }
+    return sb.toString();
+  }
+
+  public static void main(String[] args) {
+    String input = "geeksforgeeks";
+    System.out.println("Input string: " + input);
+    System.out.println("After removing duplicates: " + removeDuplicates(input));
+  }
+}
+=====================================================================================================================================================================
+2] write a program to print duplicates characters from the string.
+import java.util.HashMap;
+import java.util.Map;
+
+public class PrintDuplicates {
+  public static void printDuplicates(String input) {
+    Map<Character, Integer> map = new HashMap<>();
+    for (int i = 0; i < input.length(); i++) {
+      char c = input.charAt(i);
+      if (map.containsKey(c)) {
+        map.put(c, map.get(c) + 1);
+      } else {
+        map.put(c, 1);
+      }
+    }
+    System.out.println("Duplicate characters:");
+    for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+      if (entry.getValue() > 1) {
+        System.out.println(entry.getKey());
+      }
+    }
+  }
+
+  public static void main(String[] args) {
+    String input = "geeksforgeeks";
+    System.out.println("Input string: " + input);
+    printDuplicates(input);
+  }
+}
+======================================================================================================================================================================
+3] write a program to check if “2552” is palindrome or not.
+public class PalindromeCheck {
+  public static boolean isPalindrome(String input) {
+    int length = input.length();
+    for (int i = 0; i < length / 2; i++) {
+      if (input.charAt(i) != input.charAt(length - i - 1)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  public static void main(String[] args) {
+    String input = "2552";
+    if (isPalindrome(input)) {
+      System.out.println("The string " + input + " is a palindrome.");
+    } else {
+      System.out.println("The string " + input + " is not a palindrome.");
+    }
+  }
+}
+======================================================================================================================================================================
+4] write a program to count the number of consonants, vowels,special characters in string.
+public class CharacterCounter {
+  public static void countCharacters(String input) {
+    int vowels = 0;
+    int consonants = 0;
+    int special = 0;
+    for (int i = 0; i < input.length(); i++) {
+      char c = input.charAt(i);
+      if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U') {
+        vowels++;
+      } else if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
+        consonants++;
+      } else {
+        special++;
+      }
+    }
+    System.out.println("Vowels: " + vowels);
+    System.out.println("Consonants: " + consonants);
+    System.out.println("Special characters: " + special);
+  }
+
+  public static void main(String[] args) {
+    String input = "Hello, World!";
+    System.out.println("Input string: " + input);
+    countCharacters(input);
+  }
+}
+======================================================================================================================================================================
+5]write a program to implement Anagram checking least in build method being used.
+public class AnagramCheck {
+  public static boolean isAnagram(String input1, String input2) {
+    int length1 = input1.length();
+    int length2 = input2.length();
+    if (length1 != length2) {
+      return false;
+    }
+    int[] frequency = new int[26];
+    for (int i = 0; i < length1; i++) {
+      frequency[input1.charAt(i) - 'a']++;
+      frequency[input2.charAt(i) - 'a']--;
+    }
+    for (int count : frequency) {
+      if (count != 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  public static void main(String[] args) {
+    String input1 = "listen";
+    String input2 = "silent";
+    if (isAnagram(input1, input2)) {
+      System.out.println("The strings " + input1 + " and " + input2 + " are anagrams.");
+    } else {
+      System.out.println("The strings " + input1 + " and " + input2 + " are not anagrams.");
+    }
+  }
+}

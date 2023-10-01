@@ -1,0 +1,199 @@
+Q1 - You are given a string. Your task is to divide the string into palindromic substrings. Print all such
+partitions.
+Example
+= banana
+= [b, a, n, a, n, a]
+[b, a, n, ana]
+[b, a, nan, a]
+[b, ana, n, a]
+[b, anana]
+import java.util.*;
+ 
+public class Main {
+    public static boolean isPalindrome(String s) {
+        int left = 0, right = s.length() - 1;
+        while (left <= right) {
+            if (s.charAt(left) != s.charAt(right))
+                return false;
+            left++;
+            right--;
+        }
+        return true;
+    }
+ 
+    public static void printAllPalindromicPartitions(String s, ArrayList<String> ans, int start) {
+        if (start == s.length()) {
+            System.out.println(ans);
+            return;
+        }
+        String curr = "";
+        for (int end = start; end < s.length(); end++) {
+            curr += s.charAt(end);
+            if (isPalindrome(curr)) {
+                ans.add(curr);
+                printAllPalindromicPartitions(s, ans, end + 1);
+                ans.remove(ans.size() - 1);
+            }
+        }
+    }
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        ArrayList<String> ans = new ArrayList<>();
+        printAllPalindromicPartitions(s, ans, 0);
+    }
+}
+
+Q2 - A string is called beautiful if is an even length string consisting of only stars(‘*’) and dashes(‘-’). Further
+the number of stars in the first half of the string should be equal to the number of stars in the second half of
+the string. Given a number n, print all the beautiful strings of length 2 * n.
+import java.util.*;
+ 
+public class Main {
+    public static void printCombinations(ArrayList<String> nums) {
+        for (String num1 : nums) {
+            for (String num2 : nums) {
+                System.out.println(num1 + num2);
+            }
+        }
+    }
+ 
+    public static void generateStrings(int remainingChars, ArrayList<ArrayList<String>> nums, int numberOfStars, String curr) {
+        if (remainingChars == 0) {
+            nums.get(numberOfStars).add(curr);
+            return;
+        }
+        generateStrings(remainingChars - 1, nums, numberOfStars + 1, curr + "*");
+        generateStrings(remainingChars - 1, nums, numberOfStars, curr + "-");
+    }
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        ArrayList<ArrayList<String>> nums = new ArrayList<ArrayList<String>>();
+        for (int i = 0; i <= n; i++) {
+            nums.add(new ArrayList<String>());
+        }
+        generateStrings(n, nums, 0, "");
+        for (int s = 0; s <= n; s++) {
+            printCombinations(nums.get(s));
+        }
+    }
+}
+ 
+ Q3 - A string is called beautiful if it consists of only stars(‘*’) and dashes(‘-’). Further the number of stars in
+the first half of the string should be equal to the number of stars in the second half of the string. Given a
+number n, print all the beautiful strings of length n. If the value of n is odd, the middle value can be either
+'*' or '-'
+import java.util.*;
+ 
+public class Main {
+    public static void printCombinationsOdd(ArrayList<String> nums) {
+        for (String num1 : nums) {
+            for (String num2 : nums) {
+                System.out.println(num1 + "*" + num2);
+                System.out.println(num1 + "-" + num2);
+            }
+        }
+    }
+ 
+    public static void printCombinationsEven(ArrayList<String> nums) {
+        for (String num1 : nums) {
+            for (String num2 : nums) {
+                System.out.println(num1 + num2);
+            }
+        }
+    }
+ 
+    public static void generateStrings(int remainingBits, ArrayList<ArrayList<String>> nums, int numberOfStars, String curr) {
+        if (remainingBits == 0) {
+            nums.get(numberOfStars).add(curr);
+            return;
+        }
+        generateStrings(remainingBits - 1, nums, numberOfStars + 1, curr + "*");
+        generateStrings(remainingBits - 1, nums, numberOfStars, curr + "-");
+    }
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        ArrayList<ArrayList<String>> nums = new ArrayList<ArrayList<String>>();
+        for (int i = 0; i <= n; i++) {
+            nums.add(new ArrayList<String>());
+        }
+        generateStrings(n / 2, nums, 0, "");
+        if (n % 2 == 1)
+            for (int s = 0; s <= n; s++)
+                printCombinationsOdd(nums.get(s));
+        else
+            for (int s = 0; s <= n; s++)
+                printCombinationsEven(nums.get(s));
+    }
+}
+ 
+ Q4 - Problem Count the number of substrings having same first and last characters
+Input :
+Output :
+
+s = "pqrpq"
+7
+import java.util.*;
+ 
+public class Main {
+    public static int count(String s, int i, int j, int n) {
+        // base cases
+        if (n == 1)
+            return 1;
+        if (n <= 0)
+            return 0;
+ 
+        int ans = count(s, i + 1, j, n - 1) +
+                count(s, i, j - 1, n - 1) -
+                count(s, i + 1, j - 1, n - 2);
+ 
+        if (s.charAt(i) == s.charAt(j))
+            ans++;
+ 
+        return ans;
+    }
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        int n = s.length();
+        System.out.println(count(s, 0, n - 1, n));
+    }
+}
+Q5 - You are given a string s. All the characters in s are distinct. Your task is to generate all the strings that
+contain the characters of ‘s’ in increasing order.
+import java.util.*;
+ 
+public class Main {
+    public static void generateSubstrings(String str, int n, int index, String curr) {
+        if (index == n) {
+            return;
+        }
+        System.out.println(curr);
+        for (int i = index + 1; i < n; i++) {
+            curr += str.charAt(i);
+            generateSubstrings(str, n, i, curr);
+            curr = curr.substring(0, curr.length() - 1);
+        }
+        return;
+    }
+ 
+    public static String sort(String str) {
+        char[] charArr = str.toCharArray();
+        Arrays.sort(charArr);
+        return new String(charArr);
+    }
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        s = sort(s);
+        generateSubstrings(s, s.length(), -1, "");
+    }
+}
+ 

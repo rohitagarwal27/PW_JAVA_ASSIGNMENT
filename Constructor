@@ -1,0 +1,23 @@
+1]What is a constructor
+→ Special method of class or structure in  object-oriented programming that initializes a newly created object of that type
+
+2]what is a constructor changing 
+→Constructor training is the process of calling a sequence of constructor
+
+3]can we call A sub class constructor from a superclass constructor 
+→ yes
+
+4]what happen if you keep a return a type for a constructor 
+→it will become a method of the class
+
+5]what is a no-arg constructor 
+→that does not accept any arguments
+
+6]how is a no-arg constructor different from the default constructor 
+→If we do not create any constructor the Java compiler automatically creates a No-arg constructor during the education of the program this constructor is called the default constructor
+
+7]when do we need constructor overloading
+→   having more than one constructor with the same name
+
+8]what is the default constructor explain with an example
+→ Is a constructor created by the compiler if we do not define any constructor for a class, string

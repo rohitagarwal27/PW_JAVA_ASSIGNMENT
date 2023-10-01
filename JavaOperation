@@ -1,0 +1,112 @@
+Q1 - Write a program to add 8 to the number x and then divide it by 3. Now, the modulus of the quotient
+is taken with 5 and then multiply the resultant value by 5. Display the final result.
+Input: 2345
+Output: 20
+Code:
+import java.util.Scanner;
+public class Main {
+
+Assignment Solutions
+
+Cracking the Coding Interview in Java - Foundation
+
+Input: 5 10
+Output: 10 5
+Q2 - Swap two numbers without the use of third variable.
+
+import java.util.Scanner;
+public class Main {
+public static void main(String[] args) {
+Scanner scn = new Scanner(System.in);
+System.out.println("Enter 1st number");
+int x = scn.nextInt();
+System.out.println("Enter 2nd number");
+int y = scn.nextInt();
+x = x + y;
+y = x - y;
+x = x - y;
+System.out.println(x);
+System.out.println(y);
+}
+}
+Code:
+
+Assignment Solutions
+
+Cracking the Coding Interview in Java - Foundation
+
+Q3 - Write a program to calculate the sum of the digits of a 3-digit number.
+Input: 132
+Output: 6
+Code:
+import java.util.Scanner;
+public class Main {
+public static void main(String[] args) {
+Scanner scn = new Scanner(System.in);
+int x = scn.nextInt();
+int sum = 0;
+while(x > 0){
+sum += x % 10;
+x /= 10;
+}
+System.out.println(sum);
+}
+}
+
+Assignment Solutions
+
+Cracking the Coding Interview in Java - Foundation
+
+Code:
+i) both the conditions 'a < 50' and 'a < b' are true.
+ii) at least one of the conditions 'a < 50' or 'a < b' is true.
+Q4 - Assign values of variables 'a' and 'b' as 55 and 70 respectively and then check if:
+
+public class Main {
+public static void main(String[] args) {
+
+int a = 55;
+int b = 70;
+System.out.print(a < 50 && a < b);
+
+}
+}
+
+public class Main {
+public static void main(String[] args) {
+
+int a = 55;
+int b = 70;
+System.out.print(a < 50 || a < b);
+
+}
+}
+
+Assignment Solutions
+
+Cracking the Coding Interview in Java - Foundation
+
+Code:
+Q5 - Find the total number of bits needed to be flipped to convert x to y.
+Input: 65 80
+Output: 2
+
+counting set bits
+The idea is to take XOR of the given two integers. After calculating the XOR, the problem will reduce to
+counting set bits in the XOR output using Brian Kernighan algorithm.
+
+import java.util.Scanner;
+public class Main {
+public static void main(String[] args) {
+Scanner scn = new Scanner(System.in);
+int x = scn.nextInt();
+int y = scn.nextInt();
+int n = x ^ y;
+int count = 0;
+while (n != 0){
+n = n & (n - 1);
+count++;
+}
+System.out.print(count);
+}
+}

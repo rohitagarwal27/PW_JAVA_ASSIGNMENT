@@ -1,0 +1,55 @@
+1.what is the default value of arrys for different data types?
+->In Java, the default value of an integer array is 0, and the default value of an array of objects is null.
+
+
+2.can you pass the negative number in array size?
+In most programming languages, it is not possible to pass a negative number as the size of an array. 
+Attempting to do so will typically result in a runtime error or an exception being thrown.
+This is because the size of an array represents the number of elements that can be stored in 
+the array, and it doesn't make sense to have a negative number of elements.
+
+
+3.where does array stored in JVM memory?
+In Java, when an array is created, it is stored in the Java Virtual Machine (JVM) memory in the heap area.
+The heap is a region of memory used for dynamic memory allocation. When an array is created using the "new" keyword 
+in Java, the JVM allocates memory for the array on the heap. The size of the memory allocated depends on 
+the type and size of the elements in the array and the number of elements.
+
+
+4.what is the disadvange of array?
+Fixed size: Arrays have a fixed size, which means that once they are created, their size cannot be changed. This can be a disadvantage if you need to add or remove elements from the array at runtime.
+
+Wasted memory: Arrays can waste memory if they are not fully utilized. If you create an array with a large size but only use a small portion of it, the rest of the memory allocated for the array goes unused.
+
+Sequential access: Accessing elements in an array requires sequential access, which means that to access an element at a specific index, you need to iterate over all the previous elements. This can be inefficient if you need to access elements randomly or in a specific order.
+
+Homogeneous elements: Arrays can only store elements of the same data type. If you need to store elements of different data types, you will need to use a different data structure, such as a list or a map.
+
+5.what is an Anonymous array in java? Give an Examples?
+An anonymous array in Java is an array that is created without assigning it to a variable. It is created as part of a method call or as an argument to a method. Anonymous arrays are useful when you need to create and pass an array as an argument to a method without explicitly creating a variable to hold the array.
+public class Example {
+    public static void printArray(int[] arr) {
+        for (int i : arr) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        printArray(new int[] {1, 2, 3, 4, 5}); // creating an anonymous array
+    }
+}
+
+
+6.what are the different way to travers an Array in java?
+Using a for loop: You can use a for loop to iterate over each element of the array by specifying the starting and ending index.
+Using an enhanced for loop: Java provides an enhanced for loop, also known as a "foreach" loop, that makes it easy to iterate over each element of an array without needing to keep track of the index.
+Using a while loop: You can use a while loop to iterate over the array as long as there are elements left to process.
+
+
+7.what is the difference between length and length() method Give  an Example?
+In Java, length and length() are used to get the length of different types of data structures. The difference between them is as follows:
+
+length: This is an attribute that is used to get the length of an array. It is a final variable that contains the number of elements in the array. It is used with arrays only.
+
+length(): This is a method that is used to get the length of a string. It returns the number of characters in the string. It is used with strings only.

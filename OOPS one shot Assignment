@@ -1,0 +1,324 @@
+Q1. What are the differences between class and object ?
+     Differences between class and object are following
+      class
+   1. Class is a blueprint from which objects arecreated/a
+   2. Class is a group of similar type of objects/a
+   3. Class is a logical entity/a
+   4. Class is created using the class 'eyword/a
+   5. Class is declared only once
+   
+      Constructors Methods
+    1. A constructor is used to initialize the object.
+    2. A constructor must not have a return type.
+    3. A constructor is invo'ed without calling it explicitly.
+    4. Constructor must have the same name as the class name.
+    5. Constructor can be initialized by default if not initialized/
+
+
+==========================================================================================================================================================================
+Q2. Create a class named as student having attributes like String name, String rollNumber and String
+mobileNumber with a constructor accepting all the three attributes.
+A2. Student class is created with name, rollNumber and mobileNumber as attributes/
+ class Student
+{
+    String name;
+    String rollNumber;
+    String mobileNumber;
+    Student(String name, String rollNumber, String mobileNumber)
+    {
+        this.name = name;
+        this.rollNumber = rollNumber;
+        this.mobileNumber = mobileNumber;
+    }
+}
+=========================================================================================================================================================================
+Q3. Create an object of the student class created above and print its attribute values as assigned by you.
+    class Student
+{
+    String name;
+    String rollNumber;
+    String mobileNumber;
+    Student(String name, String rollNumber, String mobileNumber)
+    {
+        this.name = name;
+        this.rollNumber = rollNumber;
+        this.mobileNumber = mobileNumber;
+    }
+}
+public class Main
+{
+    public static void main(String args[])
+    {
+        Student s = new Student("Pratik","56", "7795868788");
+        System.out.println(s.name + " " + s.rollNumber +  " " + s.mobileNumber);
+    }
+}
+====================================================================================================================================================================
+Q4. Create a class named Animal having String name, String species and String genus along with an all
+argument constructor outside the main class.
+  class Animal 
+{
+    String name;
+    String species;
+    String genus;
+    Animal(String name, String species, String genus) 
+    {
+       this.name = name;
+       this.species = species;
+       this.genus = genus;
+    }
+}
+class Main
+{
+    public static void main(String args[])
+    {
+       Animal a = new Animal("Dog", "familiaris", "Canis");
+       System.out.println(a.name + " " + a.species + " " + a.genus);
+    }
+}
+===================================================================================================================================================================
+
+Q5. What are the benefits of making class outside the main class ?
+A5/ Benefits of ma'ing class outside the main class are following :a
+& We can reuse the code of the class as many times in main class by just ma'ing the object of the class/a
+& It increases code clarity and ma'es the code clean.
+& It ma'es the code more object oriented and enhances the use of functions/a
+& It minimizes the code length and 'eeps the code minimal/
+====================================================================================================================================================================
+Q6. Why do we need a constructor ? Explain with the help of an example.
+A6. We need a constructor because constructor is required to create an object of the class i.e an instance of
+the class. In the below code, if we had not defined a constructor or if java would not have initialized a default
+constructor then the code will not be able to create an instance of the class, resulting in a compile-time error.
+class Book {
+    int num;
+    String name;
+    Book() { System.out.println("Constructor called"); }
+}
+ 
+public class Main {
+    public static void main(String[] args)
+    {
+        Book book1 = new Book();
+        System.out.println(book1.name);
+        System.out.println(book1.num);
+    }
+}
+=====================================================================================================================================================================
+Q7. Make a Non-argument constructor of the class named Book which has attributes of string name and
+integer id and check output by printing the attribute values of the object after initializing it.
+A7.
+Output:
+import java.io.*;
+class Book {
+    int id;
+    String name;
+    Book() { System.out.println("Constructor called"); }
+}
+ 
+public class Main {
+    public static void main(String[] args)
+    {
+        Book book1 = new Book();
+        System.out.println(book1.name);
+        System.out.println(book1.id);
+    }
+}
+
+So, here we see that by default string has been initialized as null and integer equal to zero.
+=====================================================================================================================================================================
+Q8. Why constructors in java cannot be static ?
+A8. The constructors cannot be static in Java. When we declare a method as static, it means the method
+belongs to the class and not to a specific object. But We know that the constructor is always invoked to the
+reference of the objects. So, we can’t make constructors static.
+=====================================================================================================================================================================
+Q9. What is a destructor ? Do we have destructors in java ?
+A9. Destructor is a special member function like constructor. Destructor destroys the class objects created by
+the constructor. Destructor is not present in java because it has its own garbage collector.
+=====================================================================================================================================================================
+Q10. What is constructor chaining ? Explain with an example.
+A10. Constructor chaining is defined as a technique of calling one constructor from another constructor. This
+technique is used with the help of ‘this’ keyword. As seen in the code, first constructor is called second and the
+second to third which means a chain is created hence the name. Let’s assume in sequence constructors as
+1st,2nd and 3rd. Then 1st is calling 2nd which is calling 3rd constructor and executes the code written in it.
+
+Output :
+public class Main
+{
+    Main()
+    {
+        this(5);
+        System.out.println("The Default constructor");
+    }
+    Main(int x)
+    {
+        this(25, 4);
+        System.out.println(x);
+    }
+    Main(int x, int y)
+    {
+        System.out.println(x * y);
+    }
+ 
+    public static void main(String args[])
+    {
+        // invokes default constructor first
+        new Main();
+    }
+}
+ 
+=====================================================================================================================================================================
+Q11. Why is the main () method in Java always static?
+A11. The main() method in Java is always defined as static because it must be called without creating an
+instance of the class in which it is defined. This is necessary because the JVM (Java Virtual Machine) calls the
+main() meh}p when he pv}gvam savs, bef}ve any }bjecs ave cveaep5 If he main() meh}p weve n} saic,
+an insance }f he cass w}up neep } be cveaep bef}ve i c}up be caep, which w}up pefea he puvp}se }f
+he meh}p.
+=====================================================================================================================================================================
+Q12. Make a java class named Employee. Give it attributes like name, id and bossName. Make the bossName
+static. Write a function named print() which will print all three attributes.
+class Employee
+{
+    String name;
+    int id;
+    static String bossName;
+    public void print()
+    {
+        // This code will be printed after writing main function
+        System.out.println(name + " " + id + " " + bossName);
+    }
+}
+=====================================================================================================================================================================
+Q13. As you have done in the previous question. Now, Make two objects of class Employee and assign them
+with unique attributes except bossName which will remain the same and then change the boss name of one
+object and then print e1.bossName and e2.bossName to see whether changing bossName of 1st employee
+has effect on bossName of second employee as well. Explain the output.
+class Employee
+{
+    String name;
+    int id;
+    static String bossName;
+    public void print()
+    {
+        System.out.println(name + " " + id + " " + bossName);
+    }
+}
+public class Main
+{
+    public static void main(String args[])
+    {
+        Employee e1 = new Employee();
+        Employee e2 = new Employee();
+        e1.name = "Bhavit";
+        e1.id = 2201;
+        e1.bossName = "Mayank";
+        e2.name = "Varun";
+        e2.id = 2557;
+        e2.bossName = "Mayank";
+        e2.bossName = "Rohit";
+       
+        System.out.println(e1.bossName);
+        System.out.println(e2.bossName);
+    }
+}
+=====================================================================================================================================================================
+Q14. Make a Student class with attributes like String name and integer id. Use ‘this’ keyword to assign values
+assigned by user to object by making a parameterized constructor.
+Output:
+class Student
+{
+    String name;
+    int id;
+    Student(String name, int id)
+    {
+        this.name = name;
+        this.id = id;
+    }
+    void print()
+    {
+        System.out.println(name + " " + id);
+    }
+}
+public class Main
+{
+    public static void main(String args[])
+    {
+        Student s1 = new Student("Prakhar",2765);
+        Student s2 = new Student("Atul", 2456);
+        s1.print();
+        s2.print();
+    }
+}
+
+S}, he c}nsvuc}v akes avgumens anp using his keyw}vp assign i } piffeven }bjec’s avibues5
+=====================================================================================================================================================================
+Q15. What is the significance of ‘this’ keyword in java ?
+A155 his keyw}vp vefevs } he cuvven }bjec in a meh}p }v c}nsvuc}v5The m}s c}mm}n use }f his keyw}vp
+is } eiminae he c}nfusi}n beween cass avibues anp pavameevs wih he same name (because a cass
+avibue is shap}wep by a meh}p }v c}nsvuc}v pavameev).
+his can as} be usep }|
+4 Inv}ke cuvven cass c}nsvuc}u
+4 Inv}ke cuvven cass meh}o
+4 Reuvn he cuvven cass }bjec
+4 Pass an avgumen in he meh}p ca
+4 Pass an avgumen in he c}nsvuc}v cal
+=====================================================================================================================================================================
+Q16. Is it possible to overload a constructor?
+Ans 16. Yes, it is possible to overload a constructor in Java.
+Constructor overloading is a technique in which a class has multiple constructors with different parameter lists.
+Constructor overloading allows you to create multiple ways to construct an object of a class, each with a
+different set of parameters. This can be useful when you want to provide different options for creating an
+object, such as providing default values for some parameters or allowing the caller to specify different
+combinations of parameters.
+Here is an example of constructor overloading in Java:
+public class Person {
+    private String name;
+    private int age;
+    private String address;
+    
+    // Constructor with all parameters
+    public Person(String name, int age, String address) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }
+    
+    // Constructor with only name and age
+    public Person(String name, int age) {
+        this(name, age, null);
+    }
+    
+    // Constructor with only name
+    public Person(String name) {
+        this(name, 0, null);
+    }
+    
+    // Getters and setters
+}
+
+In this example, the Person class has three constructors: one with all three parameters, one with only the name
+and age parameters, and one with only the name parameter. The second and third constructors use the first
+constructor to initialize the object, passing default values for the other parameters.
+When creating an object of the Person class, you can use any of the three constructors depending on the
+information you have available.
+=====================================================================================================================================================================
+Q17. What are Access modifiers in java? What types of access modifiers does java support?
+A17. Access Modifiers are those modifiers that are used to restrict the visibility of classes, fields, methods, and
+constructors.
+Java supports four types of access modifiers:
+a) Private: Private members of a class can be accessed only within the class. It cannot be accessed from
+outside the class.
+b) Default: Default members of a class are accessible within the same package due to visible only within the
+package. They cannot be accessed from outside the package.
+c) Protected: Protected members of a class are visible within the package. Therefore, we can only access within
+the package but can be accessed to the subclasses outside the package through the inheritance only.
+d) Public: Public members are visible anywhere. So, we can access it anywhere within or outside the package.
+=====================================================================================================================================================================
+Q18. What is the difference between static and non-static classes?
+A18. A nested class can be either static or non-static, in that case it's known as Inner class. The difference is that
+you can access a static class without creating an instance of the top level class but you would need an
+instance of the containing class to access a non-static nested class.
+======================================================================================================================================================================
+Q19. What is the final modifier, can you use it with classes?
+A19. final keyword is not an access modifier but it's very important from an immutability and performance
+perspective. Yes, you can make a class final in Java, in that case you cannot extend it further. Final classes in
+Java cannot be subclassed.

@@ -1,0 +1,263 @@
+List of Concepts Involved
+Topic: Introduction to Iterative statements/Loops
+_ Basic^syntax^of^Java^]
+_ Variables]
+_ Operators]
+_ Conditionals^
+
+_ rntrod}ction^to^rterative^statements/Loops]
+_ while^loop]
+_ for^loop]
+_ How^to^choose^between^while^loop^and^for^loop?]
+_ do-while^loop]
+_ Brea`^`eyword]
+_ Contin}e^`eyword]
+_ Using^labels^with^contin}e^and^brea`^`eyword
+
+Are^yo}^familiar^with^the^word^loop?^The^simple^dictionary^meaning^of^loop^is^a^str}ct}re,^series,^or^process,^the^
+end^of^which^is^connected^to^the^beginning.^The^point^of^foc}s^here^is^that^the^beginning^and^end^are^
+connected.^
+
+
+
+Pictorially,^yo}^can^vis}alize^a^loop^li`e^this^
+
+Here,^once^the^loop^begins,^end^will^drive^start^and^start^will^drive^end^}ntil^certain^condition^to^brea`^o}t^of^loop^
+is^enco}ntered.
+
+
+
+Now^that^we^have^}nderstood^the^simple^meaning^of^loop,^let^}s^now^move^to^the^comp}ter^programming^
+terms.
+
+rn^comp}ter^programming,^a^loop^is^a^seq}ence^of^instr}ctions^contin}ally^repeated^}ntil^a^certain^condition^is^
+reached.^^
+Cracking the Coding Interview in JAVA - Foundation
+Topic: The while loop
+Assume this scenario, someone comes up to you and says “I want you to give me a program that can give me 
+all the numbers between , and ,0000”@ In such a situation, writing all the numbers from , to ,0000 isn’t a feasible 
+solution@ Can you connect the dots now? 
+
+Yes, that’s where the concept of loops comes in@ 2oops help you perform a task repeatedly until a certain 
+condition is met@ In our example, the task would be to print the value of the number, and the till it is less than 
+,0000@K
+We have the following types of iterative statements - J
++? The while loopJ
+1? The for loopJ
+*? The do-while loop
+
+A while loop is a loop that runs through its body, known as a while statement, as long as a predetermined 
+condition is evaluated as true@
+
+
+
+Syntax
+
+whi e (condition) 
+
+	statement;
+
+K
+Let us understand the working of while loop with the help of this simple
+example - 
+
+
+
+Q- Print the first ,0 natural numbers@ 
+
+
+
+To accomplish this-J
++? We declare a variable ‘i’ which denotes the current number@ We initialize it with the value , (as you already 
+know, the first natural numberb@J
+1? In the while loop, we put a condition that makes the loop run till the value of the variable i doesn’t exceed ,0@J
+*? Finally, we print the value of the variable ‘i’ and then increment it by ,@K
+Code
+
+
+
+int i = 1;
+
+whi e (i ≤ 10) {
+
+ System.out.print(i + “ “);
+
+	 i = i + 1;
+
+h 
+
+
+
+Output - 1 2 3 4 5 6 7 8 9 10
+Cracking the Coding Interview in JAVA - Foundation
+Topic: For loop
+Try theIe H
+$A Print the sum of the first ‘n’ natural numbers using a for loop, where n is the input.D
+GA Write a short program that prints each number from % to %00 on a new line. 
+E
+ For each multiple of 3, print "Fizz" instead of the number.E
+ For each multiple of 5, print "Buzz" instead of the number. E
+ For numbers which are multiples of both 3 and 5, print "FizzBuzz" instead of the number.
+
+This is the most widely used loop amongst all.E
+The advantage of a for loop is we know exactly how many times the loop will execute even before the actual 
+loop starts executing.E
+Unlike while loop, in for loop we have 3 parts in the for header.E
+E
+Syntax:
+
+for (init-statement; condition; final-expression) {E
+ statementE
+}
+
+
+E
+Init-Itatement: This statement is used to initialize or assign a starting value to a variable which may be altered 
+over the course of the loop (we will see this while solving examples). It is used/referred only once at the start of 
+the loop.E
+E
+Condition: This condition serves as a loop control statement. The loop block is executed until the condition 
+evaluates to true.E
+E
+Final expreIIion: It is evaluated after each iteration of the loop. It is generally to update the values of the loop 
+variables.E
+E
+Now that we know the use of each of these, let's understand it with an actual loop.E
+E
+Execution flow of for loop:
+
+
+	 for (int index = 0; index != 5; indexÀ+) {
+
+ System.out.print(index + “ “);
+
+ _
+
+E
+Output - 0 1 2 3 4 
+
+Herek
+$A Init-statement is executed only once at the start of the loop. In this example, index variable is defined and 
+initialized to 0. D
+GA Next, the condition is evaluated. If index is not equal to 5, the for body is executed. Stherwise, the loop 
+terminates. If the condition is false in the first iteration itself, then the for body is not executed at all.D
+A If the condition is true, the for body executes. In this case, the for body prints the value of index (the print 
+statement). D
+RA Finally, the final-expression is evaluated. In this example, index is incremented by %.
+Cracking the Coding Interview in JAVA - Foundation
+These four steps represent the first iteration of the for loop. Step 1 is executed only once on entry to the loop. 
+Steps , 3, and 4 are repeated until the condition evaluates as false i.e. index becomes equal to 5.
+
+
+Acceptable alternatives in for loop: 
+
+
+
+Omitting parts of for loop
+
+
+
+In a ‘for’ loop, we can omit any (or all) of init-statement, condition and final-expression. 
+
+
+1. We can omit the init-statement when an initialization is unnecessary. This may be the case when the 
+
+ variable may have already been declared
+ Example-
+
+ int index = 0;
+
+ for(; index < 5; index+C)
+
+ System.out.println(index);
+
+ Note that the semicolon is necessary to indicate the absence of init-statement—more precisely, the 
+
+ semicolon represents a null init-statement.
+
+
+2. Omitting the condition is equivalent to setting it as true. Because of this, the for loop must have an exit 
+
+ statement inside the loop. Otherwise, it may lead to a never-ending or infinite loop which is a nightmare for 
+
+ any processing system.
+
+ Example-
+
+ for(int index = 0; ; index+C) 
+
+ {
+
+	 statement + code inside the loop must stop the iteration!
+
+ }
+
+
+3. We can also omit final expression. In such loops, either the condition or the body must do something to 
+
+ advance the iteration, otherwise the loop will not run any further owing to lack of information
+ Example-
+
+ for(int index = 0; index = 5; ) {
+
+	 System.out.println(index);
+
+	 index = index + 1;
+
+ x
+
+
+Note B
+w The above statements can all be omitted together too.
+ We can also have multiple statements inside the loop.
+
+ Let us look at this example to know what we are talking about
+
+
+ for(int i = 0, j = 14; i < 10 && j > 5; i+C, j––);
+
+ Here, you may see that we are handling two variables, conditions wrt both and final expression, all in one for 
+
+ loop.
+
+
+
+ This is why it is the most popular loop of all.
+
+
+Let us take the same previous example - 
+
+
+
+Print the first 10 natural numbers. 
+Cracking the Coding Interview in JAVA - Foundation
+To aomplish this with a for loop-G
+0 W_ d_lar_ and d_fin_ th_ int variabl_ ‘i’ (int i=1), but this tim_ w_ do it as a part of for loop.G
+& W_ put th_ ondition as i to b_ l_ss than or _qual to 10. G
+^ Insid_ th_ for loop body, w_ print th_ valu_ of ‘i’.G
+h Finally in th_ final-_xpr_ssion, w_ inr_m_nt th_ valu_ of th_ variabl_ ‘i’.
+
+
+CodeH
+for iint i = 1; i <= 10; i++) {
+
+	System.out.printlnii + “ “);
+
+1
+
+
+
+Output - 1 2 3 4 5 6 7 8 9 10
+
+
+
+'ry these using for loopH
+1. Print th_ sum of th_ first 10 natural numb_rs.
+
+2. Writ_ a short program that prints _ah numb_r from 1 to 100 on a n_w lin_. 
+
+ For _ah multipl_ of 3, print "Fizz" inst_ad of th_ numb_r.
+
+ For _ah multipl_ of 5, print "Buzz" inst_ad of th_ numb_r. 
+
+ For numb_rs whih ar_ multipl_s of both 3 and 5, print "FizzBuzz" inst_ad of th_ numb_r.

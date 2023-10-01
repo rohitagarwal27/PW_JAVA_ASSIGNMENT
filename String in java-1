@@ -1,0 +1,57 @@
+1] what is a mutable String in java Explain with an example
+→   Once we create a String, on that String if we try to perform any operation and if those changes get 
+    reflected in the same object then such strings are called “Mutable String”.
+    Example: StringBuffer, StringBuilder
+======================================================================================================================================================================
+2]WAP to reverse a String
+input= “PWSKILL”
+→
+import java. util.*;
+
+public class ReverseString {
+  public static void main(String[] args) {
+    
+    StringBuilder reversed = new StringBuilder(“PWSKILLS);
+    reversed.append(original);
+    reversed = reversed.reverse();
+    System.out.println("The reversed string is: " + reversed);
+  }
+}
+
+====================================================================================================================================================================
+3]Write a program to reverse a sentence while preserving the position
+Input = Think Twice
+Output = “Kniht viewt”
+
+import java. util.Scanner;
+
+public class ReverseSentence {
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    System. out.print("Enter a sentence: ");
+    String original = input.next line();
+    String[] words = original.split(" ");
+    String reversed = "";
+    for (int i = words.length - 1; i >= 0; i--) {
+      reversed += words[i] + " ";
+    }
+    System.out.println("The reversed sentence is: " + reversed);
+  }
+}
+=====================================================================================================================================================================
+4] Write a program to sort a string Alphabetically
+and import java. util.Scanner;
+import java. util.Arrays;
+
+public class SortString {
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    System. out.print("Enter a string: ");
+    String original = input.next line();
+    char[] chars = original.toCharArray();
+    Arrays.sort(chars);
+    String sorted = new String(chars);
+    System. out.println("The sorted string is: " + sorted);
+  }
+}
+

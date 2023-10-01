@@ -1,0 +1,22 @@
+1]What is encapsulation in Java? why it is called data hiding?
+→ hiding the data and method, it can only be accessed by the method of the class in which they are found
+
+
+2] what are the important features of encapsulation 
+→hiding, control over its data member
+
+
+3]what are the getter and setter methods in java explain with an example
+→it is used to protect the data, particularly when creating classes
+
+
+4]what is the use of this keyword explain with an example
+→it is used to the current object in a method or constructor
+
+
+5] what is the advantage of encapsulation
+→to use hide both data and member and function
+
+
+6] how to achieve encapsulation in Java give an example
+→by using declaring the variable of class as private

@@ -1,0 +1,138 @@
+Q1. Given the number of diZits n in a number, print all n-diZit numbers whose diZits are strictly increasinZ
+from left to riZht.
+i/p=n = 2
+o/p=01 02 03 04 05 06 07 08 09 12 13 14 15 16 17 18 19 23 24 25 26 27 28
+29 34 35 36 37 38 39 45 46 47 48 49 56 57 58 59 67 68 69 78 79 89
+import java.util.*;
+ 
+public class Main {
+    public static void printNDigitNumber(int start, String out, int n) {
+        if (n == 0) {
+            System.out.print(out + " ");
+            return;
+        }
+        for (int i = start; i <= 9; i++) {
+            String str = out + Integer.toString(i);
+            printNDigitNumber(i + 1, str, n - 1);
+        }
+    }
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number: ");
+        int n = sc.nextInt();
+        printNDigitNumber(0, " ", n);
+    }
+}
+
+Q2. A strinZ is called special if it consists of only stars(‘*’) and dashes(‘-’), and the number of stars is
+more than the number of dashes for any prefix of the strinZ. Given a positive inteZer n, print all the
+special strinZs of size n.
+n = 1
+*
+import java.util.*;
+ 
+public class Main {
+    public static void printBinaryNumber(int remainingChars, String ans, int numberOfOnes, int numberOfZeroes) {
+        if (remainingChars == 0) {
+            System.out.println(ans);
+            return;
+        }
+        printBinaryNumber(remainingChars - 1, ans + "1", numberOfOnes + 1, numberOfZeroes);
+        if (numberOfZeroes + 1 <= numberOfOnes)
+            printBinaryNumber(remainingChars - 1, ans + "0", numberOfOnes, numberOfZeroes + 1);
+    }
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        printBinaryNumber(n, "", 0, 0);
+    }
+}
+ QD. Given a set of characters and a positive integer k, print all possible strings of length k that can be formed
+from the given set.
+Examples:
+
+ni8e of set = 2
+net = {a, b}
+k = 3
+import java.util.*;
+ 
+public class Main {
+    public static void printStringsOfLengthK(Character[] chars, int remainingChars, String ans) {
+        if (remainingChars == 0) {
+            System.out.println(ans);
+            return;
+        }
+        for (int i = 0; i < chars.length; i++)
+            printStringsOfLengthK(chars, remainingChars - 1, ans + Character.toString(chars[i]));
+    }
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        Character[] chars = new Character[n];
+        for (int i = 0; i < n; i++) {
+            chars[i] = sc.next().charAt(0);
+        }
+        int k = sc.nextInt();
+        printStringsOfLengthK(chars, k, "");
+    }
+}
+Q4. Given an input strinS of diSits, find all combinations of numbers that can be formed usinS diSits in the
+same order.
+Examples:
+123
+1 2 3
+1 23
+12 3
+123
+import java.util.*;
+ 
+public class Main {
+    public static void printAllCombinations(String nums, int idx, String ans) {
+        if (idx == nums.length()) {
+            System.out.println(ans);
+            return;
+        }
+        printAllCombinations(nums, idx + 1, ans + Character.toString(nums.charAt(idx)));
+        if (idx != nums.length() - 1)
+            printAllCombinations(nums, idx + 1, ans + Character.toString(nums.charAt(idx)) + " ");
+    }
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String nums = sc.next();
+        printAllCombinations(nums, 0, "");
+    }
+}
+Q5. A strinS is called special if it consists of only stars(‘*’) and dashes(‘-’), and there are no consecutive
+stars in the strinS. Given a positive inteSer K, print all the special strinSs of size K.
+Examples:
+K = 3
+---
+--*
+-*-
+*--
+*-*
+import java.util.*;
+ 
+public class Main {
+    public static void printAllCombinations(int remainingChars, String ans) {
+        if (remainingChars == 0) {
+            System.out.println(ans);
+            return;
+        }
+        printAllCombinations(remainingChars - 1, ans + "-");
+        if (ans.length() == 0 || ans.charAt(ans.length() - 1) == '-') {
+            printAllCombinations(remainingChars - 1, ans + "*");
+        }
+    }
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        printAllCombinations(n, "");
+    }
+}
+ 

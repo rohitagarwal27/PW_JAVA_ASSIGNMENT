@@ -1,0 +1,333 @@
+1. Given the head of a linked list and a value x, remove all the nodes from the linked list that have the
+character ‘x’ stored in them.The first line of input contains the size of the linked list.The second line of input
+contains the elements of the linked list.
+INPUT
+4
+a b x d
+OUTPUT
+a->b->d->NULL
+import java.util.*;
+ 
+class Node {
+    public char data;
+    public Node next;
+ 
+    public Node(char data) {
+        this.data = data;
+        next = null;
+    }
+}
+ 
+class LinkedList {
+    public Node head = null, tail = null;
+ 
+    public void insert(char val) {
+        if (head == null) {
+            head = tail = new Node(val);
+            return;
+        }
+        tail.next = new Node(val);
+        tail = tail.next;
+    }
+ 
+    public void print() {
+        Node curr = head;
+        while (curr != null) {
+            System.out.print(curr.data);
+            if(curr.next != null)
+                System.out.print("->");
+            curr = curr.next;
+        }
+    }
+}
+ 
+public class Main {
+    public static Node deleteNodesWithValueX(Node head) {
+        while (head != null && head.data == 'x') {
+            Node temp = head;
+            head = head.next;
+        }
+        Node prev = null, curr = head;
+        while (curr != null) {
+            if (curr.data == 'x') {
+                prev.next = curr.next;
+            } else {
+                prev = curr;
+            }
+            curr = prev.next;
+        }
+        return head;
+    }
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        LinkedList ll = new LinkedList();
+        for (int i = 0; i < n; i++) {
+            String c = sc.next();
+            ll.insert(c.charAt(0));
+        }
+        ll.head = deleteNodesWithValueX(ll.head);
+        ll.print();
+    }
+}
+==============================================================================================================================================
+
+2. Implement singly linked lists as a class with functions to insert a node and traverse the list.
+class Node {
+    public char data;
+    public Node next;
+ 
+    public Node(char data) {
+        this.data = data;
+        next = null;
+    }
+}
+ 
+class LinkedList {
+    public Node head = null, tail = null;
+ 
+    public void insert(char val) {
+        if (head == null) {
+            head = tail = new Node(val);
+            return;
+        }
+        tail.next = new Node(val);
+        tail = tail.next;
+    }
+ 
+    public void print() {
+        Node curr = head;
+        while (curr != null) {
+            System.out.print(curr.data);
+            if(curr.next != null)
+                System.out.print("->");
+            curr = curr.next;
+        }
+    }
+}
+=============================================================================================================================================
+3. Given the head of a linked list, print the count of odd and even integers present in the linked list.The first
+line of input contains the size of the linked list.The second line of input contains the elements of the linked
+list.
+INPUT
+5
+1 2 2 3 5
+OUTPUT
+Odd = 3
+Even = 2
+import java.util.*;
+ 
+class Node {
+    public int data;
+    public Node next;
+ 
+    public Node(int data) {
+        this.data = data;
+        next = null;
+    }
+}
+ 
+class LinkedList {
+    public Node head = null, tail = null;
+ 
+    public void insert(int val) {
+        if (head == null) {
+            head = tail = new Node(val);
+            return;
+        }
+        tail.next = new Node(val);
+        tail = tail.next;
+    }
+ 
+    public void print() {
+        Node curr = head;
+        while (curr != null) {
+            System.out.print(curr.data);
+            if(curr.next != null)
+                System.out.print("->");
+            curr = curr.next;
+        }
+    }
+}
+ 
+public class Main {
+    public static void printCount(Node head) {
+        int odd = 0, even = 0;
+        while (head != null) {
+            if (head.data % 2 == 1) {
+                odd++;
+            } else {
+                even++;
+            }
+            head = head.next;
+        }
+        System.out.println("Odd = " + odd);
+        System.out.println("Even = " + even);
+    }
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        LinkedList ll = new LinkedList();
+        for (int i = 0; i < n; i++) {
+            ll.insert(sc.nextInt());
+        }
+        printCount(ll.head);
+    }
+}
+==============================================================================================================================================
+4. Given the head of a linked list which stores only binary values i.e. 1’s and 0’s. In the linked list make sure
+that between every 2 nodes containing value 1, there exist an even number of 0’s. If the number of 0’s is odd
+then insert a node with value 0 in between the two 1’s. Assume that the first and the last node contains value
+The first line of input contains the size of the linked list.The second line of input contains the elements of the
+linked list.
+INPUT
+6
+1 0 0 1 0 1
+OUTPUT
+1->0->0->1->0->0->1->NULL
+import java.util.*;
+ 
+class Node {
+    public int data;
+    public Node next;
+ 
+    public Node(int data) {
+        this.data = data;
+        next = null;
+    }
+}
+ 
+class LinkedList {
+    public Node head = null, tail = null;
+ 
+    public void insert(int val) {
+        if (head == null) {
+            head = tail = new Node(val);
+            return;
+        }
+        tail.next = new Node(val);
+        tail = tail.next;
+    }
+ 
+    public void print() {
+        Node curr = head;
+        while (curr != null) {
+            System.out.print(curr.data);
+            if(curr.next != null)
+                System.out.print("->");
+            curr = curr.next;
+        }
+    }
+}
+ 
+public class Main {
+    public static Node update(Node head) {
+        int count = 0;
+        Node prev = null, curr = head;
+        while (curr != null) {
+            if (curr.data == 1) {
+                if (count % 2 == 1) {
+                    prev.next = new Node(0);
+                    prev = prev.next;
+                    prev.next = curr;
+                }
+                count = 0;
+            } else {
+                count++;
+            }
+            prev = curr;
+            curr = curr.next;
+        }
+        return head;
+    }
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        LinkedList ll = new LinkedList();
+        for (int i = 0; i < n; i++) {
+            ll.insert(sc.nextInt());
+        }
+        ll.head = update(ll.head);
+        ll.print();
+    }
+}
+=============================================================================================================================================
+5. Given 2 linked lists. For each element in the first list, find how many elements of the second list are smaller
+than it.The first line of input contains n and m, the size of the first and the second linked list respectively.The
+second line of input contains the elements of the first linked list.The third line of input contains the elements
+of the second linked list.
+INPUT
+4 4
+1 4 2 6
+2 3 10 5
+OUTPUT
+0 2 0 3
+import java.util.*;
+ 
+class Node {
+    public int data;
+    public Node next;
+ 
+    public Node(int data) {
+        this.data = data;
+        next = null;
+    }
+}
+ 
+class LinkedList {
+    public Node head = null, tail = null;
+ 
+    public void insert(int val) {
+        if (head == null) {
+            head = tail = new Node(val);
+            return;
+        }
+        tail.next = new Node(val);
+        tail = tail.next;
+    }
+ 
+    public void print() {
+        Node curr = head;
+        while (curr != null) {
+            System.out.print(curr.data);
+            if(curr.next != null)
+                System.out.print("->");
+            curr = curr.next;
+        }
+    }
+}
+ 
+public class Main {
+    public static void count(Node head1, Node head2) {
+        Node curr = head1;
+        while (curr != null) {
+            int count = 0;
+            Node second = head2;
+            while (second != null) {
+                if (second.data < curr.data)
+                    count += 1;
+                second = second.next;
+            }
+            System.out.print(count + " ");
+            curr = curr.next;
+        }
+    }
+ 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        LinkedList ll = new LinkedList();
+        for (int i = 0; i < n; i++) {
+            ll.insert(sc.nextInt());
+        }
+        LinkedList ll2 = new LinkedList();
+        for (int i = 0; i < m; i++) {
+            ll2.insert(sc.nextInt());
+        }
+        count(ll.head, ll2.head);
+    }
+}

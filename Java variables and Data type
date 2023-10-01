@@ -1,0 +1,44 @@
+1] what is statically and dynamically typed language?
+  If the memory of the variable is given during the
+  compilation time then Such a type of programming
+  language called hS is “Statically typed”.
+  Ex: Java
+
+  if the memory of the variable is given during the
+  execution time itSelf then Such typeS of
+  a programming language called hS “dynamically typed”.
+  Ec: Python
+
+=================================================================================================================================================================
+2] what is a variable in java?
+A variable is a title of a reserved region allocated in
+memory. In other words, it may be referred to the
+name of memory location
+
+================================================================================================================================================================
+3] How to assign a value to a variable?
+By using datatype.
+
+===============================================================================================================================================================
+4] Primitive data type?
+The primitive datatype sin include boolean, char, byte,
+short, int, long, float And double
+================================================================================================================================================================
+5]what are the Identifiers in java?
+An identifier is a name given to a package, class,
+interface, method, or variable. All identifiers must have
+different names.
+================================================================================================================================================================
+6] List the Operators in java?
+Arithmetic, Relational logic, Assignment, Unary Bitwise
+
+================================================================================================================================================================
+7] Explain increment and decrement with examples?
+Increment= Increases the value of the operand by 1
+Assume integer variable num1 holds 20 and variable
+num2 holds 30, then:
+Example: num2++ gives 31
+Decrement=Decreases the value of the operand by 1
+Assume integer variable num1 holds 20 and variable
+num2 holds 30, then:
+Example: num1-- gives 19

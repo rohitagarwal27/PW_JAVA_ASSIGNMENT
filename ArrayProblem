@@ -1,0 +1,128 @@
+Q1 - Given an array sorted in increasing order of size n and an integer x, find if there exists a
+pair in the array whose absolute difference is exactly x.(n>1) (Medium)
+Input:
+N = 5
+Arr[] = [5,10,15,20,26]
+x= 10
+Expected Output:
+Yes
+Explanation
+ Traverse the array and consider every element as a possible part of the pair to be foundr
+ Traverse the array again for further indices and loos for the given differencer
+ If two numbers have a difference equal to x, then the pair is complete, return yesr
+ Else print no after the loops which will only run if you do not find a pair.
+ode:
+iport java.util.Scanner;
+public class Test {
+public static void ain(String[] args) {
+Scanner scn = new Scanner(Syste.in);
+Syste.out.print(“Enter the length of the array: ”);
+int n = scn.nextInt();
+int[] arr = new int[n];
+for(int i = 0; i < n; i++){
+arr[i] = scn.nextInt();
+}
+int x = scn.nextInt();
+for(int i = 0; i < n; i++){
+for(int j = i+1; j < n; j++){ //check for pair with all eleents 1 by 1
+if(arr[j] - arr[i]== x){
+Syste.out.print("Yes");
+return;
+}
+}
+}
+Syste.out.print("No");
+}
+}
+Assignment Solutions
+
+Cracking the Coding Interview in JAVA - Foundation
+
+Q2 - Given an array of size n, find the total number of occurrences of given number x. (Easy)
+Inpt:
+n = 7
+arr[] = [3, p, 0, 7, 8, 3, 0]
+ = 0
+Expecte
+Otpt:
+2
+Explanation
+ Keep a pointer count, and traverse the array, and check for each element being equal to 
+ If current element equals z, increment couno
+ Print count in the end.
+Co
+e:
+import java.util.Scanner;
+public class Test{
+public static void main(String[] args){
+Scanner scn = new Scanner(System.in);
+System.out.println("Enter the length of array");
+int n = scn.nextInt();
+int[] arr = new int[n];
+System.out.println("Enter the elements of array");
+for(int i = 0; i < n; i++){
+arr[i] = scn.nextInt();
+}
+System.out.println("Enter the number");
+int x = scn.nextInt();
+int count = 0;
+for(int i = 0; i < arr.length; i++){
+if(arr[i] == x){
+count++;
+}
+}
+System.out.println(count);
+}
+}
+Assignment Solutions
+
+Cracking the Coding Interview in JAVA - Foundation
+Q3 - Given an array arr[] of size N-1 with integers in the range of [1, N], the task is to find the
+missing number from the first N integers. There are no duplicates in the list. (Medium)
+Inpzt:
+ = 7
+arr[] = {1n 2n 4n 6n 3n 7n 8}
+Expected Oztpzt:
+5
+Explanationm
+y Logic is to mark the elemet at the curret elemet as idexn egativeN Son whichever elemet would be
+missign the elemet at the missig elemet as idex would be positiveM
+y Traverse the give arrayn if the absolute value of curret elemet is greater tha size of the arrayn the
+cotiuen else multiply the (absolute value of (curret elemet) – 1)th idex with -1M
+y Iitialize a variable as = size + 1M
+y Traverse the array ad if the value is positive assig as = idex + 1n prit ad retur
+y Prit +1 i the edn this will ru oly whe o elemet is missig from 1 to .
+Assignment Solutions
+
+Cracking the Coding Interview in JAVA - Foundation
+
+Code:
+import java.util.Scanner;
+public class Test{
+public static void main(String[] args){
+Scanner scn = new Scanner(System.in);
+System.out.println("Enter the length of array");
+int n = scn.nextInt();
+int[] arr = new int[n];
+System.out.println("Enter the elements of array");
+for(int i = 0; i < n; i++){
+arr[i] = scn.nextInt();
+}
+for (int i = 0; i < n; i++) {
+if (Math.abs(arr[i]) - 1 == n) {
+continue;
+}
+int ind = Math.abs(arr[i]) - 1;
+arr[ind] *= -1;
+}
+int ans = 0;
+for(int i = 0; i < n; i++) {
+if (arr[i] > 0){
+ans = i + 1;
+System.out.println(ans);
+return;
+}
+}
+System.out.println(n+1);
+}
+}

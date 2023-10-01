@@ -1,0 +1,140 @@
+Q1 - Write a Java method to compute the average of three numbers
+i/p=25
+45
+65
+
+o/p=45
+
+import java.util.Scanner;
+public class Test{
+public static void main(String[] args){
+Scanner scn = new Scanner(System.in);
+System.out.println(“Enter the three numbers: ”);
+int a = scn.nextInt();
+int b = scn.nextInt();
+int c = scn.nextInt();
+System.out.print(avg(a, b, c));
+}
+public static int avg(int a, int b, int c){
+return (a+b+c)/3;
+}
+}
+Input:
+
+Expected Output:
+Code:
+Assignment Solutions
+
+Cracking the Coding Interview in JAVA - Foundation
+
+Q2 - Write a Java method to count all vowels in a string
+(consists of all lowercase letters)
+coding
+2
+
+import java.util.Scanner;
+public class Test{
+public static void main(String[] args){
+Scanner scn = new Scanner(System.in);
+System.out.println(“Enter the string: ”);
+String s = scn.nextLine();
+System.out.print(count(s));
+}
+public static int count(String s){
+int count = 0;
+for(int i = 0; i < s.length(); i++){
+char ch = s.charAt(i);
+if(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u'){
+count++;
+}
+}
+return count;
+}
+}
+Input:
+Output:
+Expected Code:
+Assignment Solutions
+
+Cracking the Coding Interview in JAVA - Foundation
+
+Q3 - Write a Java method to display the middle character of a string.
+Note: a) If the length of the string is even there will be two middle characters.
+b) If the length of the string is odd there will be one middle character.
+350
+
+5
+
+import java.util.Scanner;
+public class Test{
+public static void main(String[] args){
+Scanner scn = new Scanner(System.in);
+System.out.println(“Enter the string: ”);
+String s = scn.nextLine();
+System.out.print(middle(s));
+}
+public static String middle(String s){
+if(s.length() % 2 == 0){
+return s.substring(s.length()/2, s.length()/2 + 2);
+}else{
+return s.substring(s.length()/2, s.length()/2 + 1);
+}
+}
+}
+Input:
+Output:
+Expected Code:
+Assignment Solutions
+
+Cracking the Coding Interview in JAVA - Foundation
+
+Q4 - Write a Java method to check whether a year (integer) entered by the user is a leap year or not.
+2017
+
+False
+
+import java.util.Scanner;
+public class Test{
+public static void main(String[] args){
+Scanner scn = new Scanner(System.in);
+System.out.println(“Enter the year: ”);
+int year = scn.nextInt();
+System.out.print(is_LeapYear(year));
+}
+public static boolean is_LeapYear(int y){
+boolean a = (y % 4) == 0;
+boolean b = (y % 100) != 0;
+boolean c = ((y % 100 == 0) && (y % 400 == 0));
+return a && (b || c);
+}
+}
+Input:
+Output:
+Expected Code:
+
+//year is leap if it is perfectly divisible by 4, then by 100, then by 400, if not at any
+step, it is not a leap year
+Assignment Solutions
+
+Cracking the Coding Interview in JAVA - Foundation
+Q5 - Write a Java method to find the smallest number among three numbers.
+25
+37
+29
+
+25
+
+import java.util.Scanner;
+public class Test{
+public static void main(String[] args){
+Scanner scn = new Scanner(System.in);
+System.out.println(“Enter the three numbers: ”);
+int a = scn.nextInt();
+int b = scn.nextInt();
+int c = scn.nextInt();
+System.out.print(smallest(a, b, c));
+}
+public static int smallest(int a, int b, int c){
+return Math.min(a, Math.min(b,c));
+}
+}

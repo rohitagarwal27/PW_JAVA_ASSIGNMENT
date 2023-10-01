@@ -1,0 +1,199 @@
+Q1 - Given two integer matrices, multiply the matrices, if possible, else return “Invalid Input”. (Medium)
+Assignment Solutions
+
+Input1:
+
+Expected Output:
+n1 = 2
+m1 = 3
+arr1 = {{2,4,1}, {3,,6}}
+n2 = 3
+m2 = 2
+arr2 = {{1,2}, {3,4}, {,7}}
+
+19 27
+48 68
+
+import java.util.Scanner;
+public class Test {
+public static void main(String[] args) {
+Scanner scn = new Scanner(System.in);
+System.out.println("Enter the dimensions of first array: ");
+int n1 = scn.nextInt();
+int m1 = scn.nextInt();
+int[][] arr1 = new int[n1][m1];
+System.out.println("Enter the elements of first array: ");
+for (int i = 0; i < n1; i++) {
+for (int j = 0; j < m1; j++) {
+arr1[i][j] = scn.nextInt();
+}
+}
+System.out.println("Enter the dimensions of second array: ");
+int n2 = scn.nextInt();
+int m2 = scn.nextInt();
+int[][] arr2 = new int[n2][m2];
+System.out.println("Enter the elements of second array: ");
+for (int i = 0; i < n2; i++) {
+for (int j = 0; j < m2; j++) {
+
+Cracking the Coding Interview in JAVA - Foundation
+
+arr2[i][j] = scn.nextInt();
+}
+}
+if (m1 != n2) {
+return;
+}
+int[][] ans = new int[n1][m2];
+for (int i = 0; i < n1; i++) {
+for (int j = 0; j < m2; j++) {
+for (int k = 0; k < m1; k++) {
+ans[i][j] += (arr1[i][k] * arr2[k][j]);
+}
+}
+}
+for (int i = 0; i < n1; i++) {
+for (int j = 0; j < m2; j++) {
+System.out.print(ans[i][j] + " ");
+}
+System.out.println();
+}
+}
+}
+
+
+import java.util.Scanner;
+public class Test {
+public static void main(String[] args) {
+Scanner scn = new Scanner(System.in);
+System.out.println("Enter the dimensions of the array: ");
+int n = scn.nextInt();
+int m = scn.nextInt();
+int[][] mat = new int[n][m];
+System.out.println("Enter the elements of the array: ");
+for (int i = 0; i < n; i++) {
+for (int j = 0; j < m; j++) {
+mat[i][j] = scn.nextInt();
+}
+}
+for (int x = 0; x < n / 2; x++) {
+for (int y = x; y < n - x - 1; y++) {
+int temp = mat[x][y];
+Assignment Solutions
+
+Cracking the Coding Interview in JAVA - Foundation
+
+mat[x][y] = mat[y][n - 1 - x];
+mat[y][n - 1 - x] = mat[n - 1 - x][n - 1 - y];
+mat[n - 1 - x][n - 1 - y] = mat[n - 1 - y][x];
+mat[n - 1 - y][x] = temp;
+}
+}
+for (int i = 0; i < n; i++) {
+for (int j = 0; j < m; j++) {
+System.out.print(mat[i][j] + " ");
+}
+System.out.println();
+}
+}
+}
+
+
+
+import java.util.Scanner;
+public class Test {
+public static void main(String[] args) {
+Scanner scn = new Scanner(System.in);
+System.out.println("Enter the dimensions of the array: ");
+int n = scn.nextInt();
+int m = scn.nextInt();
+int[][] mat = new int[n][m];
+System.out.println("Enter the elements of the array: ");
+for (int i = 0; i < n; i++) {
+for (int j = 0; j < m; j++) {
+mat[i][j] = scn.nextInt();
+}
+}
+for (int i = 1; i < n; i++) {
+for (int j = 1; j < m; j++) {
+if(mat[i][j] != mat[i-1][j-1]){
+System.out.println(false);
+return;
+}
+}
+}
+System.out.println(true);
+}
+}
+
+
+import java.util.Scanner;
+public class Test {
+public static void main(String[] args) {
+Scanner scn = new Scanner(System.in);
+System.out.println(]Enter the dimensions of the array: ]);
+int n = scn.nextInt();
+int m = scn.nextInt();
+int[][] mat = new int[n][m];
+System.out.println(]Enter the elements of the array: ]);
+for (int i = 0; i < n; i++) {
+for (int j = 0; j < m; j++) {
+mat[i][j] = scn.nextInt();
+}
+}
+int[] arr = new int[n*m];
+int idx = 0;
+int row = 0;
+int col = 0;
+while(col < m){
+int i = row;
+int j = col;
+while(i >= 0 && j < m){
+arr[idx] = mat[i][j];
+idx++;
+i--;
+j++;
+}
+row++;
+if(row >= n){
+row = n-1;
+col++;
+}
+}
+for(int i = 0; i < arr.length; i++){
+System.out.print(arr[i] + ] ]);
+}
+}
+}
+
+
+import java.util.Scanner;
+import java.util.Arrays;
+public class Test {
+public static void main(String[] args) {
+Scanner scn = new Scanner(System.in);
+System.out.println("Enter the dimensions of the array: ");
+int n = scn.nextInt();
+int m = scn.nextInt();
+int[][] mat = new int[n][m];
+System.out.println("Enter the elements of the array: ");
+for (int i = 0; i < n; i++) {
+for (int j = 0; j < m; j++) {
+mat[i][j] = scn.nextInt();
+}
+}
+Arrays.sort(mat, (a,b) -> a[0]-b[0]);
+int count = 0;
+int i = 0;
+while(i < n){
+while(i < n-1 && mat[i+1][0] <= mat[i][1]){
+mat[i+1][0] = mat[i][0];
+mat[i+1][1] = Math.max(mat[i][1], mat[i+1][1]);
+i++;
+}
+i++;
+count++;
+}
+System.out.println(count);
+}
+}

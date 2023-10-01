@@ -1,0 +1,130 @@
+for(int i=0;i<7;i++)
+ {
+ for(int j=0;j<5;j++)
+ {
+ if(j==0 && i!=0 || j==4 && i!=0 || i==0 && j!=0 
+&& j!=4 || i==3 )
+System.out.print("*");
+
+ else
+ System.out.print(" ");
+ }
+ System.out.println();
+ }
+
+
+
+
+for(int i=0;i<7;i++)
+ {
+ for(int j=0;j<5;j++)
+ {
+ if(j==0 || j==4 && i!=0 && i!=3 && i!=6||
+ i==0 && j!=4 || i==3 && j!=4 || i==6 && 
+j!=4 )
+ System.out.print("*");
+
+ else
+ System.out.print(" ");
+ }
+ System.out.println();
+ }
+ 
+ for(int i=0;i<6;i++)
+ {
+ for(int j=0;j<5;j++)
+ {
+ if(j==0 && i!=0 && i!=5 || i==0 && j!=0 || i==5 
+&& j!=0)
+ System.out.print("*");
+
+else
+ System.out.print(" ");
+ }
+ System.out.println();
+ }
+
+ for(int i=0;i<7;i++)
+ {
+ for(int j=0;j<5;j++)
+ {
+ if(j==0 || i==0 && j!=4 || j==4 && i!=0 && i!=6 
+|| i==6 && j!=4 )
+ System.out.print("*");
+
+ else
+ System.out.print(" ");
+ }
+ System.out.println();
+ }
+
+
+ // pattern=118
+
+ for(int i=0;i<7;i++)
+ {
+ for(int j=0;j<5;j++)
+ {
+ if(j==0 || i==0 || i==3 || i==6)
+ System.out.print("*");
+
+ else
+ System.out.print(" ");
+ }
+ System.out.println();
+ }
+
+
+ for(int i=0;i<7;i++)
+ {
+ for(int j=0;j<5;j++)
+ {
+ if(j==0 || i==0 || i==3)
+ System.out.print("*");
+
+ else
+ System.out.print(" ");
+ }
+ System.out.println();
+ }
+
+
+ for(int i=0;i<7;i++)
+ {
+ for(int j=0;j<6;j++)
+ {
+ if(j==0 || i==0 && j!=5 || i==6 && j!=5|| i==3 && 
+j!=1 && j!=2 
+ || j==4 && i!=1 && i!=2)
+ System.out.print("*");
+
+ else
+ System.out.print(" ");
+ }
+ System.out.println();
+ }
+
+
+ for(int i=0;i<7;i++)
+ {
+for(int j=0;j<5;j++)
+ {
+ if(j==0 || i==3 || j==4)
+ System.out.print("*");
+
+ else
+ System.out.print(" ");
+ }
+ System.out.println();
+ }
+
+
+
+for(int i=0;i<5;i++)
+ {
+ for(int j=0;j<5;j++)
+ {
+ System.out.print("*");
+ }
+ System.out.println();
+ }

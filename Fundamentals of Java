@@ -1,0 +1,39 @@
+1] What is a programming language? 
+A programming language is a computer language used by programmers (developers) to communicate with computers. 
+It is a set of instructions written in any specific language (C, C++, Java, Python) to perform a particular task.
+
+
+2] why do we need a programming language?
+The programing language enables us to write efficient programs and develop online solutions such as mobile applications, 
+web applications, games, etc. Programming is used to automate, maintain, assemble, measure, and interpret the processing of data and information.
+
+
+
+3] what are the features of java?
+->Object Oriented
+  In Java, everything is an Object. Java can be easily extended since it is based on the Object model.
+->Platform Independent
+Unlike many other programming languages including C and C++, when Java is compiled, it is not compiled into platform-specific machines, but rather into platform-independent byte code. This byte code is distributed over the web and interpreted by the Virtual Machine (JVM) on whichever platform it is being run on.
+->Simple
+Java is designed to be easy to learn. If you understand the basic concept of OOP Java, it would be easy to master.
+->Secure
+With Java's secure feature, it enables to development of virus-free, tamper-free systems. Authentication techniques are based on public-key encryption.
+->Architecture-neutral
+Java compiler generates an architecture-neutral object file format, which makes the compiled code executable on many processors, with the presence of Java runtime system.
+->Portable
+Being architecture-neutral and having no implementation-dependent aspects of the specification makes Java portable. The compiler in Java is written in ANSI C with a clean portability boundary, which is a POSIX subset.
+
+
+
+4] what is an object?
+An entity that has a state and behavior is known as an object
+
+
+5]what is the class?
+ a class is a basic building block. It can be defined as a template that describes the data and behavior associated with class instantiation.
+ 
+ 
+6] Explain about the main() method in java?
+The main () is the starting point for JVM to start the execution of a Java program. Without the main () method, JVM
+will not execute the program. The syntax of the main () method is: public: It is an access specifier. We should
+use a public keyword before the main () method so that JVM can identify the execution point of the program.

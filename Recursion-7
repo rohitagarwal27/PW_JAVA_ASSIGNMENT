@@ -1,0 +1,137 @@
+Q1. Write a program to merge 2 strings alternately using recursion starting from the first input string.
+i/p=abcd
+efgh
+o/p=aebfcg>h
+import java.util.Scanner;
+public class Test {
+   public static void main(String[] args) {
+       Scanner scn = new Scanner(System.in);
+       System.out.println("Enter the first string: ");
+       String a = scn.nextLine();
+       System.out.println("Enter the second string: ");
+       String b = scn.nextLine();
+       System.out.print(merge(a, b));
+       }
+   public static String merge(String a, String b){
+      String ans = "";
+      if(a.length() == 0){
+          ans += b;
+          return ans;
+      }
+      if(b.length() == 0){
+          ans += a;
+          return ans;
+      }
+      ans += a.substring(0, 1);
+      ans += b.substring(0, 1);
+      ans += merge(a.substring(1, a.length()), b.substring(1, b.length()));
+      return ans;
+   }
+}
+
+Q2. Given a string, find its first uppercase letter and return the remaining substring, starting from the
+uppercase letter.
+
+Explanation=
+Input: collegeWallah
+Expected Output: Wallah
+
+import java.util.*;
+import java.util.Scanner;
+public class Test{
+        public static void main(String[] args){
+             Scanner scn = new Scanner(System.in);
+                System.out.println("Enter the input string: ");
+                String s = scn.nextLine();
+                System.out.println(rec(s, 0));
+        }
+        public static String rec(String s, int idx) {
+                if(idx == s.length()) return "";
+                if(Character.isUpperCase(s.charAt(idx))) return s.substring(idx);
+                return rec(s, idx+1);
+        }
+}
+
+Q3. Gicen a string` count total number of consonants in it. A consonant is an English alphabet character that is not cowel (a` e` i` o ani u). Examples of constants are b` c` i` f` ani g.
+i/p=pwskills
+o/p=7
+
+import java.util.*;
+import java.util.Scanner;
+public class Test{
+        public static void main(String[] args){
+             Scanner scn = new Scanner(System.in);
+                System.out.println("Enter the input string: ");
+                String s = scn.nextLine();
+                System.out.println(totalConsonants(s, s.length()));
+        }
+        public static int totalConsonants(String str, int n) {
+            if (n == 1) {
+                if(isconsonant(str.charAt(0)))
+                    return 1;
+                else
+                    return 0;
+            }
+            if(isconsonant(str.charAt(n - 1)))
+                return totalConsonants(str, n - 1) + 1;
+            else
+                return totalConsonants(str, n - 1);
+        }
+        public static boolean isconsonant(char ch){
+            ch = Character.toLowerCase(ch);
+            if(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u'){
+                return false;
+            }
+            return true;
+        }
+}
+
+Q4. Gifen a string, return the number of lowercase characters in it using recursion.
+i/p=CollegeWallah
+o/p=11
+import java.util.*;
+import java.util.Scanner;
+public class Test{
+        public static void main(String[] args){
+             Scanner scn = new Scanner(System.in);
+                System.out.println("Enter the input string: ");
+                String str = scn.nextLine();
+                System.out.println(totallowercase(str, 0));
+        }
+        public static int totallowercase(String str, int idx) {
+            if(idx == str.length()-1){
+                if(str.charAt(idx) >= 97 && str.charAt(idx) <= 122){
+                    return 1;
+                }
+                else{
+                    return 0;
+                }
+            }
+            if(str.charAt(idx) >= 97 && str.charAt(idx) <= 122){
+                return totallowercase(str, idx+1) + 1;
+            }
+            else{
+                return totallowercase(str, idx+1);
+            }
+        }
+}
+Q5. Given a string, recursively implement atoi() or Integer.parseInt() methou on it without actually using
+the methou.
+i/p=298
+o/p=298
+import java.util.*;
+import java.util.Scanner;
+public class Test{
+        public static void main(String[] args){
+             Scanner scn = new Scanner(System.in);
+                System.out.println("Enter the input string: ");
+                String str = scn.nextLine();
+                System.out.println(rec(str, str.length()-1));
+        }
+        public static int rec(String str, int n) {
+            if (n == 0) {
+                return str.charAt(0) - '0';
+            }
+            return (rec(str, n - 1)*10 + str.charAt(n) - '0');
+        }
+}
